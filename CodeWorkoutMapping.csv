@@ -1,0 +1,2145 @@
+QuestionID,CodeWorkoutQuestionTitle,Max Score,X-WorkoutOfferingID,Description,Correct Question
+3, in1To10,1.0,11494,"Write a function in Java that implements the following logic: Given a number n, return true if n is in the range 1..10, inclusive. Unless ""outsideMode"" is true, in which case return true if the number is less or equal to 1, or greater or equal to 10.","public boolean in1To10(int n, boolean outsideMode)
+{
+    if (outsideMode) {
+        // true, thus return T if <= 1 or >= 10
+        if (n <= 1 || n >= 10)
+            return true;
+        else
+            return false;
+    }
+    else {
+        // false, thus return T if in range 1..10
+        if (n >= 1 && n <= 10)
+            return true;
+        else
+            return false;
+    }
+}
+"
+559, Is it even,1.0,11494,"Write a function that returns true if a is even, false otherwise. Just for practice, you must use an if statement. Examples:","public boolean isItEven(int a)
+{
+   if (a % 2 == 0)
+       return true;
+    else 
+       return false;
+}
+"
+40, Sum 3 integers in array,1.0,11494,"Given an array containing three ints, return the sum of all the elements. It is safe to assume that the array always has at least 3 elements. Examples:","public int sum3(int[] nums)
+{
+    return nums[0]+nums[1]+nums[2];
+}
+"
+648, First 10,1.0,11494,"Write a function first10(s) that returns the first 10 characters of s. If s is longer than 10 characters, just truncate it. If s is shorter, pad it with spaces at the end of the string. Examples:","String first10(String s)
+{
+    if (s.length() < 10) {
+        // pad it
+        String b = """";
+        for (int i = s.length(); i < 10; i++)
+            b = b + "" "";
+        return s+b;
+    }
+    else {
+        // truncate it
+		return s.substring(0, 10);
+    }
+}
+"
+661, Title Case,1.0,11494,Write a function toTitleCase(s) that returns the s converted to Title Case. Title case has each word in the s with its first letter in upper case. All other letters must be in lowercase. Examples:,"String toTitleCase(String s)
+{
+	s = s.toLowerCase();
+    boolean nextIsTitle = true;
+    String result = """";
+    for (int i = 0; i < s.length(); i++) {
+        if (nextIsTitle) {
+            result = result + Character.toUpperCase(s.charAt(i));
+            nextIsTitle = false;
+        }
+    	else if (s.charAt(i) == ' ') {
+            result = result + s.charAt(i);
+            nextIsTitle = true;
+        }
+		else {
+            result = result + s.charAt(i);
+        }
+	}
+	return result;
+
+}
+"
+655, Words less than 20,1.0,11494,"Write a function fullWords(s) that returns a string no longer than 20 characters. If the string s is longer than 20 characters, just truncate at the space closest to the 20th position (so no word is truncated) and return it. If the string s is shorter 20 characters, just return it unchanged. Examples:","String fullWords(String s)
+{
+   if (s.length() <= 20) return s;
+   String left = s.substring(0, 20);
+   if ((s.toLowerCase().charAt(20) >='a' && s.toLowerCase().charAt(20) <='z') && (s.toLowerCase().charAt(19) >='a' && s.toLowerCase().charAt(19) <='z')){
+       int pos = left.lastIndexOf("" "");
+       return left.substring(0, pos);
+   }
+    return left;
+}
+"
+646, Largest integer,1.0,11494,"Given an array of integers, return the largest value in the array. Assume the array has only posivitive numbers. If the array is empty, return -1.","int largest(int[] numbers)
+{
+    int largest = -1;
+    for (int i = 0; i < numbers.length; i++) {
+        if (numbers[i] > largest)
+            largest = numbers[i];
+    }
+    return largest;
+}
+"
+625, Count non-null strings,1.0,11494,Complete the function countStrings() so that it returns the count of Strings in the array names that are not null. Examples:,"public int countStrings(String[] names)
+{
+	int count = 0;
+    for (String n : names) 
+        if (n != null)
+            count++;
+    return count;
+}
+"
+644, Repeat string,1.0,11494,"Write a function called repeat(s, n) with two parameters, a String s and an int n. The routine should return a string with s repated n times. Examples:","String repeat(String s, int n)
+{
+    String ns = """";
+    for (int i = 0; i < n; i++)
+        ns = ns + s;
+    return ns;
+}
+"
+626, Count Strings Longer Than and Not null,1.0,11494,"Complete the function countStrLongerThan() so that it returns the count of Strings in the array names that are longer than minLen. You must check for Strings in the array names that are not null. If an element in names is null, then ignore it. Examples:","public int countStrLongerThan(String[] names, int minLen)
+{
+	int count = 0;
+    for (String n : names) 
+        if (n != null && n.length() > minLen)
+            count++;
+    return count;
+}
+"
+905, Create an array of ints,1.0,11503,Write a method that takes as argument an integer size and returns an integer array of that size. The method should allocate a new array of int and return it. You do not need to initialize the array. Examples:,"public int[] makeArray(int size)
+{
+    int[] array = new int[size];
+    return array;
+}
+"
+668, Create an array and initialize,1.0,11503,"Given a size for an array and the initial value, create and return a new int array that is initialized with initial stored in all the positions in the array. Examples:","int[] createArray(int size, int initial)
+{
+    int[] result = new int[size];
+    
+    for (int i = 0; i < result.length; i++)
+        result[i] = initial;
+    
+    return result;
+}
+"
+620, Size of array,1.0,11503,Complete the function getArraySize() so that it returns the size of the array passed in as an argument into the function. You cannot use a loop to count the elements in the array. Examples:,"public int getArraySize(int[] numbers)
+{
+    if ((numbers == null) || (numbers.length <= 0)) return 0;
+  return numbers.length;
+}
+"
+1333, Get first value,1.0,11503,"Given an array of ints, return the first value in the array. You may assume the array has at least one value.","int firstValue(int[] numbers)
+{
+   return numbers[0];
+}
+"
+1334, Get last value,1.0,11503,"Given an array of ints, return the last value in the array. You may assume the array has at least one value.","int lastValue(int[] numbers)
+{
+   return numbers[numbers.length-1];
+}
+"
+621, Get nth element in array,1.0,11503,Complete the function getElementAt() so that it returns the element stored at the nth position in the array numbers. You may assume that the array has at least that many elements. Examples:,"public int getElementAt(int[] numbers, int nth)
+{
+   return numbers[nth];
+}
+"
+1335, Are all values even?,1.0,11503,"Given an array of ints, return true if all values in the array are even values. This routine should return false if at least one value is odd. You may assume the array has at least one value. Examples:","boolean evenValues(int[] numbers)
+{
+   for(int i = 0; i<numbers.length; i++){
+    	if(numbers[0] % 2 != 0){
+         	return false;   
+        }
+   }
+    
+    return true;
+}
+"
+659, Sum all integer,1.0,11503,"Given an array of integers, return the sum of all the values in the array. Examples:","int sum(int[] numbers)
+{
+   int sum = 0;
+   for(int i = 0; i<numbers.length; i++){
+     sum += numbers[i];   
+   }
+    return sum;
+}
+"
+623, Count negative values in array,1.0,11503,Complete the function countNegatives() so that it counts of negative values in the array numbers. You may assume that the array has some elements. Examples:,"public int countNegatives(int[] numbers) {
+    int count = 0;
+    for (int number : numbers) {
+        if (number < 0) {
+            count++;
+        }
+    }
+    return count;
+}
+"
+647, Get smallest integer,1.0,11503,"Given an array of ints, return the smallest value in the array. Assume the array has only posivitive numbers. If the array has no values (i.e., length is 0), return -1.","int smallest(int[] numbers)
+{
+   if(numbers.length == 0){
+    	return -1;   
+   }
+   int min = numbers[0];
+   for(int i = 0; i<numbers.length; i++){
+    	min = Math.min(min,numbers[i]);   
+   }
+   return min;
+}
+"
+1332, Get position of smallest integer,1.0,11503,"Given an array of ints, return the POSITION (i.e., the index) of smallest value in the array. Assume the array has only posivitive numbers. If the array has no values (i.e., length is 0), return -1.","int smallest(int[] numbers)
+{
+   if(numbers.length == 0){
+    	return -1;   
+   }
+   int min = 0;
+   for(int i = 0; i<numbers.length; i++){
+    	if(numbers[min] > numbers[i]){
+         	min = i;   
+        }
+   }
+   return min;
+    
+}
+"
+665, First Integer Larger Than,1.0,11503,"Given an array of integers, return the first element in the array that is larger than maxVal. Assume the array has only posivitive numbers. If no value in numbers is larger than maxVal, then return maxVal. Examples:","int largerThan(int[] numbers, int maxVal)
+{
+	for(int i = 0; i<numbers.length; i++){
+     	if(numbers[i] > maxVal){
+         	return numbers[i];   
+        }
+    }
+    
+    return maxVal;
+}
+"
+624, Count strings longer than,1.0,11503,Complete the function countStrLongerThan() so that it returns the count of Strings in the array names that are longer than minLen. You may assume that the array has some elements. Examples:,"public int countStrLongerThan(String[] names, int minLen)
+{
+    if ((names == null) || (names.length <= 0)) return 0;
+    int count = 0;
+    for (String name: names)
+        if (name.length() > minLen) count++;
+    return count;
+}
+"
+740, Count Strings in ArrayList longer than,1.0,11503,"Complete the function countStrLongerThan() so that it returns the count of Strings in the ArrayList<String> names that are longer than minLen. Make sure that names is a valid (not null), otherwise return 0.","public int countStrLongerThan(ArrayList<String> names, int minLen)
+{
+    if(names == null){
+     	return 0;   
+    }
+  int longer_then = 0;
+  for(int i = 0; i<names.size(); i++){
+   	if(names.get(i).length() > minLen){
+     	longer_then ++;   
+    }
+  }
+   return longer_then;
+}
+"
+649, Get the longest string,1.0,11503,"Given an array of Strings, return the longest String in the array. If the array is empty, return null. Examples:","String longest(String[] names)
+{
+   if (names == null || names.length==0) return null;
+   String longestStr = names[0];
+   int longest = longestStr.length();
+   for (String name: names)
+       if (name.length() > longest){
+           longest = name.length();
+           longestStr = name;
+       }
+    return longestStr;
+}
+
+"
+1137, Get value from hashmap,1.0,11563,"Consider a dictionary that, given an English word, returns the corresponding Spanish word. This dictionary is stored in a HashMap<String, String>, where the key is the English word and the value is the Spanish word. Write a method getSpanish() that returns the Spanish word from the dictionary. If the word is not found, the method should return ""?"".","String getSpanish(String english)
+{
+    String spanish = dictionary.get(english);
+    if (spanish != null)
+        return spanish;
+    else
+        return ""?"";
+}
+"
+1138, Add entries to HashMap,1.0,11563,"Consider a dictionary that given an English word, returns the Spanish word. Add new English-Spanish word pairs to the dictionary. Remember, you add words to a HashMap by calling the put() method. dictionary.put( <<word english>>, <<word in spanish>>) Write a method that adds the following English-Spanish word pairs to the dictionary:","void addNewWords()
+{
+    // one line per set of word added
+    dictionary.put(""dog"", ""perro"");
+    dictionary.put(""cat"", ""gato"");
+    dictionary.put(""guinea pig"", ""cobaya"");
+    dictionary.put(""fish"", ""pez"");
+    dictionary.put(""bird"", ""pájaro"");
+    dictionary.put(""parakeet"", ""perico"");
+    dictionary.put(""turtle"", ""tortuga"");
+    dictionary.put(""snake"", ""serpiente"");
+    
+    
+}
+"
+1139, Add entries from array to a HashMap,1.0,11563,"Instead of writing multiple lines of code to add each word pair individually, you can store all the English words in one array and their corresponding Spanish translations in another associated array. Then, loop over the arrays to add the word pairs to the dictionary. You can assume that the English and Spanish arrays have the same size.","void addWords(String[] english, String[] spanish)
+{
+    for (int i = 0; i < english.length; i++)
+        dictionary.put(english[i], spanish[i]);
+}
+"
+1140, Create a reversed HashMap,1.0,11563,"Let's assume we want to create a new Spanish-to-English dictionary, named diccionario, which translates from Spanish to English. We already have an English-to-Spanish dictionary defined, which returns the Spanish translation for a given English word. To create the Spanish-to-English dictionary, follow these steps: To add a key-value pair to a HashMap, use the put() method: dictionary.put(<<spanish word>>, <<english word>>); To retrieve the associated value for a given key from a HashMap, use the get() method: dictionary.get(<<spanish word>>);","HashMap<String, String> reverseDictionary()
+{
+    HashMap<String, String> diccionario;
+
+    // allocate a new HashMap
+    diccionario = new HashMap<String, String>();
+
+    // loop over all the words in the english one
+    for (String english : dictionary.keySet()) {
+        // now look up the spanish in dictionary
+        String spanish = dictionary.get(english);
+
+        // then add them to the diccionario
+        diccionario.put(spanish, english);
+    }
+
+    return diccionario;
+}
+"
+1228, Hash Function with Mod,1.0,11573,"Write a Java function called hashKey() that takes two parameters: a value to be stored in a hash table and the size of the table. This function should return the index where the value will be stored. The hashKey() function will be simple, returning the result of the value modulo the size of the table. Examples:","
+
+    public static int hashKey(int value, int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException(""Size of the hash table must be greater than zero."");
+        }
+        return value % size;
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(hashKey(123, 10)); // Should print 3
+        System.out.println(hashKey(456, 10)); // Should print 6
+    }
+"
+1229, Hash Function Sum Digits,1.0,11573,"Write a Java function called hashSumDigits() that takes two parameters: a non-negative value to be stored in a hash table and the size of the table. This function returns the index where the value will be stored. The hash function works by summing all the digits of the value and then returning the result of that sum modulo the size of the table. Use a loop to sum all the digits. Remember that using the modulus operator (%) with 10 yields the rightmost digit (e.g., 126 % 10 is 6), while division (/) by 10 removes the rightmost digit (e.g., 126 / 10 is 12). Examples:","
+
+    public static int hashSumDigits(int value, int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException(""Size of the hash table must be greater than zero."");
+        }
+        
+        int sum = 0;
+        while (value > 0) {
+            sum += value % 10;
+            value /= 10;
+        }
+        
+        return sum % size;
+    }
+
+"
+1231, Hash ASCII Strings,1.0,11573,"Complete the function that computes a hash key for a string. The function computes a hash key based on the argument value and does a mod with the size of the table size. This function returns the index where the input string will be stored. The function works by summing the ASCII values of the characters in the input string, already stored in ch[], and then returning the result of that sum modulo the size of the table. Use a loop to sum the ASCII values of all the characters in the input string. For example, the ASCII value of 'a' is 97, 'b' is 98, 'A' is 65, and 'B' is 66. The sum of the ASCII values of all the characters in the string ""AaBb"" is 65 + 97 + 66 + 98, which equals 326. If the table size is 100, sascii(""AaBb, 100) will return 26. Examples:","public static int sascii(String value, int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException(""Size of the hash table must be greater than zero."");
+        }
+        
+        char[] ch = value.toCharArray();
+        int sum = 0;
+        
+        for (int i = 0; i < ch.length; i++) {
+            sum += ch[i]; // Accumulate the ASCII value of ch[i]
+        }
+        
+        return sum % size; // Return the result of the sum modulo the size
+    }"
+1230, Character Position,1.0,11573,"Write a function that returns the position of a character in the alphabet. The function should consider 'A' as 0, 'B' as 1, 'C' as 2, ..., and 'Z' as 25. It should return the same position for both upper and lower case letters (e.g., 'A' and 'a' both return 0). The function accepts a character ch and returns its position in the alphabet. Characters are represented by numerical codes, so the difference between ch and 'A' (or 'a') can be used to determine the position. Make sure to handle both upper and lower case letters appropriately. Examples:","public static int charPosition(char ch) {
+        // Convert the character to uppercase
+        char upperCh = Character.toUpperCase(ch);
+        
+        // Check if the character is within the valid range 'A' to 'Z'
+        if (upperCh < 'A' || upperCh > 'Z') {
+            throw new IllegalArgumentException(""Character must be an uppercase or lowercase letter."");
+        }
+        
+        // Calculate the position (0 for 'A', 1 for 'B', etc.)
+        return upperCh - 'A';
+    }"
+1232, Hash Average Char Position,1.0,11573,"Write a function that computes a hash key for a string. The hash key is calculated by taking the average of the positions of each letter in the alphabet, then dividing this average by the size of the table. You can use the charPosition() function defined in the previous exercise for this calculation. The correct implementation is provided for you in this exercise. To compute the hash key: Examples:","public int hashAverage(String value, int size)
+{
+    int sum = 0;
+	for (int i = 0; i < value.length(); i++) {
+        sum += charPosition(value.charAt(i));
+    }
+    return (sum / value.length()) % size;
+}
+"
+1268, Write JUnit test case for accessor method,1.0,11583,"Use this partial definition of a Student class to solve this exercise. And consider these lines of code that create three instances of Student objects. Write a JUnit test case that checks that (i.e., asserts) the futureCEO was born in 1955. In other words, it asserts that birth year is equal to 1955. You must access the futureCEO instance, and call the getBirthYear().","void testCEOBirthYear()
+{
+    // first simple test
+    assertNotNull(futureCEO);
+    // write your other test here
+    assertEquals(1955,futureCEO.getBirthYear());
+    
+}
+"
+1269, Write JUnit test case for accessor method-2,1.0,11583,"Use this partial definition of a Student class to solve this exercise. And consider these lines of code that create three instances of Student objects. Write a JUnit test case that checks that the first coder was born earlier than the hidden engineer (i.e., the birth year for ""A Lovelace"" is less than the birth year for ""K Johnson"").","void testTwo()
+{
+    // first simple test
+    assertNotNull(firstCoder);
+    // write your other test here
+    assertTrue(firstCoder.getBirthYear() < hiddenEngineer.getBirthYear());
+    
+}
+"
+1270, Write JUnit test case for accessor method-3,1.0,11583,Use this partial definition of a Student class to solve this exercise. And consider these lines of code that create three instances of Student objects. Write three asserts that ensure that none of the names of the students are null. Use assertNotNull() on each name.,"void testThree()
+{
+    // write your three test here
+    assertNotNull(futureCEO.getName());
+    assertNotNull(firstCoder.getName());
+    assertNotNull(hiddenEngineer.getName());
+}
+"
+1271, Write JUnit test case for accessor method-4,1.0,11583,"Use this partial definition of a Student class to solve this exercise. And consider these lines of code that create three instances of Student objects. Change the name of the future CEO to a full name using setName(). Then make two checks. First, make sure getName() returns something other than null. Then make sure that getName() returns the same string you used in the setName().","void testFour()
+{
+    // write your tests here
+    Student futureCEO = new Student(""B Gates"", 1955);
+    
+    futureCEO.setName(""Bill Gates"");
+    assertNotNull(futureCEO.getName());
+    assertEquals(""Bill Gates"", futureCEO.getName());
+    
+}
+"
+1337, Complete compareTo() for last name,1.0,11593,"The Name class below implements the Comparable interface. You must complete the compareTo method. Complete the compareTo() method in the class above as described below. The method takes as a parameter another Name, named other.","public int compareTo(Name other)
+{
+    if (other == null) {
+        return -1;
+}
+    int lastNameComparison =  this.last.compareTo(other.getLast());
+    
+   	if (lastNameComparison < 0) {
+        return -1;
+    } else if (lastNameComparison > 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+    
+"
+1338, Complete compareTo() for full name,1.0,11593,"The Name class below implements the Comparable interface. You must complete the compareTo method. Complete the compareTo() method in the class above as described below. The method takes as a parameter another Name, named other.","public int compareTo(Name other)
+{
+    if (other == null) {
+        return -1;
+}
+    int lastNameComparison = this.last.compareTo(other.getLast());
+    
+    if (lastNameComparison < 0) {
+        return -1;
+    } else if (lastNameComparison > 0) {
+        return 1;
+    } else {
+       
+        int firstNameComparison = this.first.compareTo(other.getFirst());
+
+        if (firstNameComparison < 0) {
+            return -1;
+        } else if (firstNameComparison > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+}
+"
+1340, Complete Comparator for last name,1.0,11593,"Use the Name class below. Note that this class does NOT implement the Comparable interface. For this problem you must complete a Comparator class_name definition implementing the comparison of first and last name. Since the Name class doesn't have implement a Comparable, you must write the full implementation of the comparison here. Complete the compare() method in the class above as described below. The method takes as a parameter two objects of type Name named o1 and o2.","public int compare(Name o1, Name o2)
+{
+    if (o1 == null && o2 == null) {
+            return 0;
+}
+    if (o1 == null) {
+            return -1;
+    }
+    if (o2 == null) {
+            return 1;
+        }
+    
+    int lastNameComparison = o1.getLast().compareTo(o2.getLast());
+        
+     if (lastNameComparison < 0) {
+            return -1;
+        } else if (lastNameComparison > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+"
+1339, Complete Comparator for full names,1.0,11593,Use the Name class below. Note that this class does NOT implement the Comparable interface. For this problem you must complete the following class. Complete the compare() method in the class above as described below. The method takes as a parameter two objects of type Name named o1 and o2.,"public int compare(Name o1, Name o2)
+{
+    if (o1 == null && o2 == null) {
+            return 0;
+        }
+        
+       
+        if (o1 == null) {
+            return -1;
+        }
+        
+       
+        if (o2 == null) {
+            return 1;
+        }
+    int lastNameComparison = o1.getLast().compareTo(o2.getLast());
+        
+        if (lastNameComparison < 0) {
+            return -1;
+        } else if (lastNameComparison > 0) {
+            return 1;
+        } else {
+           
+            int firstNameComparison = o1.getFirst().compareTo(o2.getFirst());
+            
+            if (firstNameComparison < 0) {
+                return -1;
+            } else if (firstNameComparison > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
+
+
+"
+1341, Complete Comparator for two last names,1.0,11593,"Use the Name class below. Note that this class does NOT implement the Comparable interface. For this problem you must complete the following class. This class should compare properly people with two last name, like ""Perez Quinones."" The easiest way to accomplish this comparison is to remove any spaces in the names and then compare them as if they had a single word last name. So, ""Perez Quinones"" becomes ""PerezQuinones"". Note that there might be more than one space and in more than one location, that is not all spaces are contigous. All of these names should match with ""Perez Quinones"": ""Perez Quinones"", ""Pe rez Quino nes"". Complete the compare() method in the class above as described below. The method takes as a parameter two objects of type Name named o1 and o2.","public int compare(Name o1, Name o2)
+{
+    if (o1 == null && o2 == null) {
+            return 0;
+        }
+        
+        
+        if (o1 == null) {
+            return -1;
+        }
+        
+       
+        if (o2 == null) {
+            return 1;
+        }
+        
+      
+        String lastName1 = o1.getLast().replace("" "", """");
+        String lastName2 = o2.getLast().replace("" "", """");
+        
+    
+        int lastNameComparison = lastName1.compareTo(lastName2);
+        
+        if (lastNameComparison < 0) {
+            return -1;
+        } else if (lastNameComparison > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+
+"
+467, Generic Class Basics,1.0,11603,Using generics in your program can be very useful considering generic methods and generic classes can handle different datatypes. Practice using generics by completing the class Answer:,"public class Answer<T>
+{
+	private T value;
+  
+
+public void setValue(T newValue) {
+	this.value = newValue;
+}
+public T getValue() {
+	return this.value;
+    }
+}
+"
+1316, Rewrite with Generics,1.0,11603,"The code below is a binary search looking for an integer (search) in an array of integers (numbers). Rewrite the binarySearch using generic parameter E. The type of E extends a Comparable, that is it has the method compareTo() defined. Here is the definition without the code that you will write below. Examples:","public int binarySearch(E[] numbers, E search)
+{
+    int low = 0;
+    int high = numbers.length -1;
+    
+    while (low <= high) {
+         int mid = (low + high) / 2;
+         int comparison = search.compareTo(numbers[mid]);
+         
+         if (comparison == 0) {
+            return mid;  
+         } else if (comparison < 0) {
+            high = mid - 1;
+         } else {
+            low = mid + 1;
+         }
+      }
+
+      return -1; 
+   }
+   
+
+"
+1273, Contains (with linear search),1.0,11613,"Complete the following contains method so it returns true if the value being searched is found in the array, or false otherwise. You must use a linear search to find the value. It is unspecified if the array is ordered or not, so assume it is not. Examples:","public boolean contains(int[] numbers, int search)
+{
+  // Iterate over all of the elements
+  for (int num : numbers)
+  {
+    // if the number is at the current location
+    if (num == search) { // then you found it
+      return true ;
+    }
+  }
+
+  // We made it here, thus we didn't find it.
+  return false;
+}
+"
+1272, Linear Search Return Index,1.0,11613,"Complete the following linear search method. Find the number search in the array numbers. If the number is found, return the index for the position. If the number is not found, return -1. It is unspecified if the array is ordered or not, so assume it is not. Examples:","public int linearSearch(int[] numbers, int search)
+{
+  // Iterate over all of the elements
+  // searching for value
+  // return index if found, -1 otherwise
+  for (int i =0; i < numbers.length; i++) {
+      if (numbers[i] == search) {
+       return i;
+      }
+  }
+   return -1; 
+}
+  
+"
+1275, Linear Search (Strings) Return Index,1.0,11613,"Complete the following linear search method. Find the string search in the array words. If the string is found, return the index for the position. If it is not found, return -1. It is unspecified if the array is ordered or not, so assume it is not. The comparison should be case insensitive (i.e., look up equalsIgnoreCase()). Examples:","public int linearSearch(String[] words, String search)
+{
+  // Iterate over all of the elements
+  // searching for 'search'
+  // return the index into words[] if found, -1 otherwise
+  for (int i =0; i < words.length; i++ ) {
+      if (words[i].equalsIgnoreCase(search)){
+      return i;
+      }
+  }
+  return -1;
+}
+"
+1336, Linear Search (Strings) Return Object,1.0,11613,"Complete the following linear search method. Find the string search in the array words. If the string is found, return the string found. If it is not found, return null. It is unspecified if the array is ordered or not, so assume it is not. The comparison should be case insensitive (i.e., look up equalsIgnoreCase()). Examples:","public String linearSearch(String[] words, String search)
+{
+  // Iterate over all of the elements
+  // searching for 'search'
+  // return the element from words[] if found, null otherwise
+    for (int i = 0; i < words.length; i++) {
+        
+        if (words[i].equalsIgnoreCase(search)) {
+            return words[i];
+        }
+   }
+    
+   return null; 
+}
+"
+1274, Linear Search in Ordered Array,1.0,11613,"Complete the following linear search method. Find the number search in the array numbers. If the number is found, return the index for the position. If the number is not found, return the index of the last position checked. The array is sorted in increasing value (lower values appear first), thus your routine must stop once the code has deterrmined the value is not there. Examples:","public int linearSearch(int[] numbers, int search)
+{
+  for (int i = 0; i < numbers.length; i++) {
+      if (numbers[i] ==  search) {
+          return i;
+      }
+      else if (numbers[i] > search) {
+          return i;
+          
+      }
+  }
+    
+  return -1;
+  
+}
+"
+1223, Binary Search (int),1.0,11613,"Complete the following binary search method on integers. Find the number search in the array numbers. Return the index of the element if found, -1 if the number is not found. You may assume the array is properly ordered. Examples:","public int binarySearch(int[] numbers, int search)
+{
+  int low = 0; // low range
+  int high = numbers.length -1; // high range 
+  int mid; //mid range
+
+  while (low <= high)  // while low is less than or equal to high
+  {
+    mid = low + (high - low) / 2; // set the middle index
+
+    // if the number at mid is what we are looking for
+    if (numbers[mid] == search) { // found it
+      return mid;
+    }
+    // else if the number at mid ...
+    else if (numbers[mid] < search) { 
+        low = mid + 1;
+        // change the range to 1/2 of the array
+    }
+    else
+    {
+      high = mid -1;  // change the range to the OTHER 1/2 of the array
+    }     
+  }
+
+  // We are done, thus we didn't find it.
+  return -1;
+}
+"
+6, helloName,5.0,11633,"Write a function in Java that implements the following logic: Given a string name, e.g. ""Bob"", return a greeting of the form ""Hello Bob!"".","public String helloName(String name)
+{
+   return ""Hello "" + name + ""!"";
+}
+"
+669, Sum 2 integers,5.0,11633,"Given two integers a and b passed as arguments to sumints, return the sum of their values. Examples:","int sumints(int a, int b)
+{
+   return a+b;
+}
+"
+466, Sorting - Fix Selection Sort,1.0,11643,"The following method is a Selection Sort method. Within the method, there is an error on one line. You job is to find that line and fix that one error so that the method may work properly. You will need to understand exactly how a selection sort method works. Examples:","public int[] selectionSort(int[] array) {
+  for (int i = 0; i < array.length - 1; i++) {
+   int min = array[i];
+   int minIndex = i;
+     for (int j = i + 1; j < array.length; j++) {
+       if (min > array[j]) {
+         min = array[j];
+         minIndex = j;
+         }
+      }
+     if (minIndex != i) {
+       array[minIndex] = array[i];
+       array[i] = min;
+     }
+    }
+  return array;
+}
+"
+1067, Complete Bubble Sort,1.0,11643,"Given the code for the bubble sort below, provide the lines that swap the values j - 1 and j. This bubble sort orders an array of E using the compareTo() method that is already defined in the E class. Your job is to just write the lines of code that will swap the values at elems[j-1] and elems[j].","public void bubbleSort(E[] elems) {
+    for (int i = 0; i < elems.length - 1; i++) {
+        for (int j = 1; j < elems.length - i; j++) {
+            if (elems[j - 1].compareTo(elems[j]) > 0) {
+                // swap elements at j-1 and j
+                E temp = elems[j - 1];
+                elems[j - 1] = elems[j];
+                elems[j] = temp;
+            }
+        }
+    }
+}
+"
+1209, Insertion Sort with Comparable,1.0,11643,Complete the sort method below. It implements the insertion sort algorithm discussed in the OpenDSA book. You must use the Comparable interface to compare values and swap them if necessary.,"public void insertionSort(T[] values) 
+{
+    for (int i = 1; i < values.length; i++) 
+    {
+        for (int j = i; j > 0; j--) 
+        {
+            if (values[j].compareTo(values[j - 1]) < 0) 
+            {
+                // Swap values[j] and values[j - 1]
+                T temp = values[j];
+                values[j] = values[j - 1];
+                values[j - 1] = temp;
+            } else 
+            {
+                break;
+            }
+        }
+    }
+}
+"
+1057, ArrayQueue - constructor,1.0,11663,"In this first problem, you will declare the instance variable named 'list' of type ArrayList<E>. YOU MUST call this instance variable list. In the constructor, instantiate the list by creating a new ArrayList<E>. The clear() method should just also create a new list as a way to initialized it. You can assume the class definition is there for you: You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","// 1. Define instance variable here, name it list
+ArrayList<E> list;
+//
+// Constructor
+public ArrayQueue()
+{
+  // 2. Create new instance
+  list = new ArrayList<E>();
+}
+public void clear()
+{
+  // 3. Empty the list that holds the values
+  // for the queue
+  list.clear();
+}
+"
+1058, ArrayQueue - enqueue(),1.0,11663,"In this second problem, you will complete the enqueue method. This method adds an element to the end of the instance variable (list)you created in the previous problem. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public boolean enqueue(E it)
+{
+  // 1. Add an element to the list on rear.
+  // 2. Return true if the object was added correctly
+  return list.add(it);
+}
+"
+1059, ArrayQueue - dequeue(),1.0,11663,"In this third problem, you will complete the dequeue method. This method removes an element from the front of the queue. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public E dequeue()
+{
+  // 1. Remove the first element in the queue.
+  
+  // 2. Return said element
+  if (list.isEmpty()) return null;
+  return list.remove(0);
+}
+"
+1060, ArrayQueue - numElements(),1.0,11663,"In this fourth problem, you will complete the numElements method. This method returns the number of elements stored in the queue. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public int numElements()
+{
+  // 1. Return the number of elements stored
+  return list.size();
+}
+"
+1061, ArrayQueue - isEmpty(),1.0,11663,"In this fifth problem, you will complete the isEmpty method. This method returns true if the internal queue is empty. Define this method by calling the numElements() method. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public boolean isEmpty()
+{
+  // 1. Return true if the queue is empty
+  return list.size()==0;
+}
+"
+1002, Remove First Two,1.0,11673,Use this interface definition to solve this problem. Write a method to remove the first two elements in the queue. Make sure you use the interface from above. You should check that queue is not null and it has more than 2 elements.,"void removeFirstTwo(QueueADT<String> queue)
+{
+    if (queue != null && queue.numElements() > 2) {
+        queue.dequeue();
+        queue.dequeue();
+    }
+}
+"
+1003," Remove First Two, Then Add Three",1.0,11673,"Use this interface definition to solve this problem. Write a method to remove the first two elements and add three new elements to a queue. You should check that queue is not null and it has more than 2 elements. Add the following three elements, in this order: ""A"", ""B"" and ""C"". Make sure you use the interface from above.","void removeFirst2Add3(QueueADT<String> queue)
+{
+    if (queue != null && queue.numElements() > 2) {
+        queue.dequeue();
+        queue.dequeue();
+        queue.enqueue(""A"");
+        queue.enqueue(""B"");
+        queue.enqueue(""C"");
+    }
+}
+"
+1004, Remove First n,1.0,11673,"Use this interface definition to solve this problem. Write a method to remove the first n elements from a queue. You should check that queue is not null and it has more than n elements. If queue is null, it should do nothing. If the queue has less than n elements, it should remove all the elements in the queue. Make sure you use the interface from above.","void removeFirstN(QueueADT<String> queue, int n)
+{
+   if (queue != null) {
+        if (n > queue.numElements()) {
+            n = queue.numElements();  
+        }
+        for (int i = 0; i < n; i++) {
+            queue.dequeue();
+        }
+    }
+}
+"
+1005, Move Front to Back,1.0,11673,"Use this interface definition to solve this problem. Write a method to move the first element from a queue to the back of the list. You should check that the queue is not null and it has more than 1 element. If queue is null or if the queue has less than 2 elements, it should do nothing. (Think about it, if the queue has less than 2, the front of the queue is also the tail element, so moving front to back makes no difference) Make sure you use the interface from above.","void moveToBack(QueueADT<String> queue)
+{
+    if (queue != null && queue.numElements() > 1) {
+        String frontElement = queue.frontValue();
+        queue.dequeue();
+        queue.enqueue(frontElement);
+    }
+        
+}
+"
+1006, Move n to back of queue,1.0,11673,"Use this interface definition to solve this problem. Write a method to move the first n elements from a queue to the back of the queue. You should check that queue is not null and it has more than n elements to move. If queue is null or has less than n elements, it should do nothing. Make sure you use the interface from above.","void moveNToBack(QueueADT<String> queue, int n)
+{
+     if (queue == null || queue.numElements() < n) {
+        return; // Do nothing if the queue is null or has less than n elements
+    }
+
+    // Move the first n elements to the back of the queue
+    for (int i = 0; i < n; i++) {
+        String element = queue.dequeue(); // Remove the front element
+        queue.enqueue(element); // Add it to the back of the queue
+    }
+}
+
+"
+1010, Keep Evens,1.0,11673,"Use this interface definition to solve this problem. Write a method to given a queue, keeps only the even values in the queue. Note that you can't access the whole queue, you have to dequeue() one at a time and if it is an even number, then put it back in the queue. If it is not, then ignore it, thus dicarding it. If queue is null, it should do nothing.","void keepEvens(QueueADT<Integer> queue)
+{
+    if (queue != null) {
+        int size = queue.numElements();
+        for (int i = 0; i < size; i++) {
+            Integer currentElement = queue.dequeue();
+            if (currentElement % 2 == 0) {
+                queue.enqueue(currentElement);
+            }
+        }
+    }
+}
+"
+992, Swap Top Two Nodes in Stack,1.0,11683,"Use this interface definition to solve this problem. Write a method to swap the top two elements of the stack. If the stack has less than 2 values, then do nothing. Otherwise, modify the stack by swapping the top two elements. The figure below shows an example of what this method should do. Worth noting: ","void swapTopTwo(StackADT<String> stack) {
+    // 1. Check if the stack has less than 2 elements
+    if (stack.numElements() < 2) {
+        return; // Do nothing if there are less than 2 elements
+    }
+
+    // 2. Pop the top two elements
+    String top1 = stack.pop();
+    String top2 = stack.pop();
+
+    // 3. Push them back in reverse order
+    stack.push(top1); // The original top element goes in second
+    stack.push(top2); // The original second element goes in first
+}
+"
+509, reverseWord,1.0,11683,"Given a word, use a stack to reverse the word and return a new string with the original word in reverse order. You cannot use the reverse string methods in the String class. Examples:","public String reverseWord(String word) {
+    // Create a stack to hold the characters
+    Stack<Character> stack = new Stack<>();
+
+    // Push each character of the word onto the stack
+    for (int i = 0; i < word.length(); i++) {
+        stack.push(word.charAt(i));
+    }
+
+    // Create a StringBuilder to build the reversed word
+    StringBuilder reversed = new StringBuilder();
+
+    // Pop each character from the stack and append it to the reversed string
+    while (!stack.isEmpty()) {
+        reversed.append(stack.pop());
+    }
+
+    // Return the reversed string
+    return reversed.toString();
+}
+"
+1017, Copy Queue to a Stack,1.0,11693,"Use these two interfaces to solve this problem. Write a method to remove all of the elements from the 'queue' (one by one) and add them to a newly created stack (use a StackArray<String>) and push the values in the stack. Return this stack. If queue is null, then just return an empty stack. Make sure you use the interfaces from above."," StackADT<String> copyQueueToStack(QueueADT<String> queue) {
+    // 1. Create a new StackArray<String> (assuming StackArray implements StackADT)
+    StackADT<String> stack = new StackArray<>();
+
+    // 2. Check if the queue is null; if so, return an empty stack
+    if (queue == null) {
+        return stack; // Empty stack
+    }
+
+    // 3. Transfer elements from the queue to the stack
+    while (!queue.isEmpty()) {
+        // Dequeue element from the front of the queue and push it to the stack
+        stack.push(queue.dequeue());
+    }
+
+    // 4. Return the stack
+    return stack;
+}
+"
+1018, Copy Stack to a Queue,1.0,11693,"Use these two interfaces to solve this problem. Write a method to remove all of the elements from the 'stack' (one by one) and add them to a queue. Create a new queue of type QueueArray<String>. If stack is null, then just return an empty queue. Otherwise, return a queue that contains all the elements that were popped off the stack. Make sure you use the interfaces above to solve the problem.","QueueADT<String> copyStackToQueue(StackADT<String> stack)
+{
+    QueueADT<String> q = new QueueArray<String>();
+    if (stack == null || stack.isEmpty()) return q;
+    while (! stack.isEmpty()){
+        q.enqueue(stack.pop());
+    }
+    return q;
+}
+"
+1019, Use a Stack to a Reverse order of a Queue,1.0,11693,"Use these two interfaces to solve this problem. Write a method that reverses the elements in a queue. For example, if the queue starts with ""A"",""B"",""C"" then after the routine runs, the queue should have ""C"",""B"", ""A"". This should work for all values in the queue. One easy way to do this is to use a stack and copy all elements from the queue and then copy the contents of the stack back to the queue. You should use a StackArray<String>. If queue is null, then do nothing. Make sure you use the interfaces from above.","void reverseQueue(QueueADT<String> queue) {
+    // 1. Create a new StackArray<String> (assuming StackArray implements StackADT)
+    StackADT<String> stack = new StackArray<>();
+
+    // 2. Check if the queue is null; if so, do nothing
+    if (queue == null) {
+        return;
+    }
+
+    // 3. Transfer elements from the queue to the stack
+    while (!queue.isEmpty()) {
+        stack.push(queue.dequeue());
+    }
+
+    // 4. Transfer elements back from the stack to the queue (reversed order)
+    while (!stack.isEmpty()) {
+        queue.enqueue(stack.pop());
+    }
+}
+"
+974, Create New Node,1.0,11703,Using this class definition: Complete the method createNewNode that returns a new node using the constructor above.,"public node<E> createNewNode(E a)
+{
+  return new node<E>(a, null);
+}
+"
+975, Build Two Nodes,1.0,11703,"Using this class definition: Complete the method build2Nodes that creates two objects of type node, and places the values of the a and b parameters in these nodes. The first node (a) should have its next field point to the second node created (b). The method should return the head of the list created, that is the pointer to the node with the value in a.","public node<E> build2Nodes(E a, E b)
+{
+    node<E> bnode = new node<E>(b, null);
+    return new node<E>(a, bnode);
+}
+"
+976, Build Three Nodes,1.0,11703,"Using this class definition: This is an extension of the previous problem, build2Nodes. You should build 3 nodes and store the value of a on the first, the value of b on the second, and the value of c on the third. The routine should return the pointer to the first node, the one with value of a stored in it.","public node<E> build3Nodes(E a, E b, E c)
+{
+    node<E> cnode = new node<E>(c, null);
+    node<E> bnode = new node<E>(b, cnode);
+    return new node<E>(a, bnode);
+}
+"
+977, Build Nodes,1.0,11703,"Using this class definition: As a more general form of building nodes, this method takes an array of values and creates as many nodes as there are objects in the values array. This method returns the node that has the values[0]. The head node next points to values[1], and so forth.","public node<E> buildNodes(E[] values)
+{
+    if (values == null || values.length == 0) return null;
+    node<E> next = new node<E>(values[values.length-1], null);
+    for (int i = values.length - 2; i>=0; i--){
+        node<E> cur = new node<E>(values[i], next);
+        next = cur;
+    }
+    return next;
+}
+"
+505, Count Linked Nodes,1.0,11703,"Consider the following class definition for a Node class: Write a method countNodes() that when given a list that starts at the node pointed by p, returns the number of nodes in the list. Note that if p is null (empty list), your method should return 0. In the first example below the following Node client code builds a linked list of two nodes, ""A"" and ""B"". The countNodes() call on line 2 returns 2. This second example builds a list by hand. The countNodes() call on line 6 returns a count of 3. Write the countNodes() method.","public int countNodes(Node p)  
+{  
+    if (p == null) return 0;
+    Node cur = p;
+    int count = 0;
+    while (cur != null) {
+        count++;
+        cur = cur.next;
+    }
+    return count;
+}
+"
+969, Update Nodes - 1,1.0,11723,"Using this class definition: Assume we have built a linked list with four nodes as shown in the image below and we pass this node (the pointer to the first element, head) to the routine below.  Complete the method changeMe to modify the list passed in as argument in variable head and return a pointer to a list as shown below: ","public static node<String> changeMe(node<String> head)
+{
+    if (head == null) return null;
+    return head.next;
+}
+"
+970, Update Nodes - 2,1.0,11723,"Using this class definition: Assume we have built a linked list with four nodes as shown in the image below and we pass this node (the pointer to the first element, head) to the routine below.  Complete the method changeMe to modify the list passed in as argument in variable head and return a pointer to a list as shown below: ","public static node<String> changeMe(node<String> head)
+{
+    node<String> cur = head;
+    if (cur == null) return null;
+    while (cur.next != null)
+        cur = cur.next;
+    return cur;
+}
+"
+971, Update Nodes - 3,1.0,11723,"Using this class definition: Assume we have built a linked list with four nodes as shown in the image below and we pass this node (the pointer to the first element, head) to the routine below.  Complete the method changeMe to modify the list passed in as argument in variable head and return a pointer to a list as shown below: ","public static node<String> changeMe(node<String> head)
+{
+    node<String> nodeB = head.next; //aNext
+    node<String> nodeC = nodeB.next; //bNext
+    node<String> nodeD = nodeC.next; //cNext
+    nodeB.next = nodeD;
+    nodeC.next = nodeB;
+    head.next = nodeC;
+    return head;
+}
+"
+972, Update Nodes - 4,1.0,11723,"Using this class definition: Assume we have built a linked list with four nodes as shown in the image below and we pass this node (the pointer to the first element, head) to the routine below.  Complete the method changeMe to modify the list passed in as argument in variable head and return a pointer to a list as shown below: ","public static node<String> changeMe(node<String> head)
+{
+    node<String> nodeE = new node<String>(""E"", null);
+    nodeE.next = head;
+    head = nodeE;
+    return head;
+}
+"
+973, Update Nodes - 5,1.0,11723,"Using this class definition: Assume we have built a linked list with four nodes as shown in the image below and we pass this node (the pointer to the first element, head) to the routine below.  Complete the method changeMe to modify the list passed in as argument in variable head and return a pointer to a list as shown below: ","public static node<String> changeMe(node<String> head)
+{
+    head.data = ""E"";
+    return head;
+}
+"
+1219, Complete method countLeaves,1.0,11743,"Define a recursive method countLeaves() that returns the number of leaves in the tree. Remember, a leaf node, sometimes called a terminal node, is a node with no children.","int countLeaves(BinaryNode<E> root)
+{
+  	if (root == null)
+  	{
+      return 0;
+	}
+    if (root.getLeft() == null && root.getRight() == null)
+    {
+    	return 1;
+   	}
+   	else
+    {
+    	return countLeaves(root.getLeft()) + countLeaves(root.getRight());
+  	}
+   
+    
+}
+"
+1224, Complete method countInternalNodes,1.0,11743,Define a recursive method countInternalNodes() that counts the number of internal nodes in a tree. Remember an internal node is a node with at least one child.,"int countInternalNodes(BinaryNode<E> root)
+{
+  	if (root == null)
+  	{
+      return 0;
+	}
+    if (root.getLeft() == null && root.getRight() == null)
+    {
+    	return 0;
+   	}
+   	else 
+    {
+     	return 1 + countInternalNodes(root.getLeft()) + countInternalNodes(root.getRight());  
+    }
+}
+"
+1220, Complete method countNodes,1.0,11743,Define a recursive method countNodes() that counts all the nodes in the tree. Returns the number of nodes.,"int countNodes(BinaryNode<String> root)
+{
+	if (root == null)
+    {
+        return 0;
+    }
+    return 1 + countNodes(root.getLeft()) + countNodes(root.getRight());
+}
+"
+1218, Complete method computeHeight,1.0,11743,"Define a recursive method computeHeight() that returns the height of the tree. The height of the tree is the number of edges in the path from the root to the furthest terminal node. For empty trees (i.e., root == null), the height is 0, and for a tree with just a root node (i.e., root.getLeft() == null, root.getRight() == null) the height is still 0, as there is no path. Think of the height of a tree as the largest value of the heights of the two subtrees (left and right). The tree below has a height of 1.
+
+The larger tree that follows has a height of 3.","int computeHeight(BinaryNode<E> root)
+{
+	if (root == null)
+    {
+        return 0;
+    }
+    if (root.getLeft() != null && root.getRight() != null)
+    {
+        return 1 + computeHeight(root.getLeft()) + computeHeight(root.getRight());
+    }
+    if (root.getLeft() == null && root.getRight() != null)
+    {
+        return 1 + computeHeight(root.getRight());
+    }
+    else if (root.getLeft() != null && root.getRight() == null)
+    {
+       	return 1 + computeHeight(root.getLeft());
+    }
+    else
+    {
+        return 0;
+    }
+
+}
+"
+1110, Complete method sumNodes,1.0,11743,Write a recursive function sumNodes that traverses the tree and returns the sum of all the values in the tree nodes.,"int sumNodes(BinaryNode<Integer> root)
+{
+	if (root == null)
+    {
+        return 0;
+    }
+  	return root.getValue() + sumNodes(root.getLeft()) + sumNodes(root.getRight());   
+    
+}
+"
+1111, Complete method multiplyNodes,1.0,11743,Write a recursive function multiplyNodes that traverses the tree and returns the product of all the values in the tree nodes.,"int multiplyNodes(BinaryNode<Integer> root)
+{
+	if (root == null)
+    {
+        return 1;
+    }
+  	return root.getValue() * multiplyNodes(root.getLeft()) * multiplyNodes(root.getRight());    
+}
+"
+1438, Parenthesis notation,1.0,11743,"The String notation(BinaryNode<Integer> root) method converts a binary tree into a string representation of the tree using the parenthesized notation. This routine, however, has one small flaw. If the node is a leaf node, it returns a notation of the form (A - -) when it should just return A. All other uses of - is appropriate as they represent an empty left or right subtree (see the 2nd example below). Modify the routine so that it returns the proper notation. Here are some examples of trees, what the starting code returns and what it should return.","public String notation(BinaryNode<Integer> root)
+{
+    if (root == null)
+        return ""-"";
+    else {
+        if (root.getLeft()==null && root.getRight()==null)
+            return """" + root.getValue();
+        
+        String left = notation(root.getLeft());
+        String right = notation(root.getRight());
+        return ""("" + root.getValue() + "" "" +
+            left + "" "" +
+            right + "")"";
+    }
+}
+"
+1225, Complete add() for Binary Search Tree,1.0,11753,"Define a recursive method add(BinaryNode<E> treeRoot, E node) that inserts a node in a binary search tree (BST) in such a way that it maintains the order property of a BST. The code below shows the entry point for adding a node to a tree. The add(E) call checks for special cases: The logic for adding a node is as follows. Compare, using compareTo(), the node being added to the value (E) stored in the treeRoot.","BinaryNode<E> add(BinaryNode<E> treeRoot, E node)
+{
+  	int result = node.compareTo(treeRoot.getValue());
+    if (result <= 0)
+    {
+     	if (treeRoot.getLeft() == null)
+        {
+         	treeRoot.setLeft(new BinaryNode<E>(node));  
+        }
+        else
+        {
+         	treeRoot.setLeft(add(treeRoot.getLeft(), node));   
+        }
+    }
+    else
+    {
+       	if (treeRoot.getRight() == null)
+        {
+         	treeRoot.setRight(new BinaryNode<E>(node));  
+        }
+        else
+        {
+         	treeRoot.setRight(add(treeRoot.getRight(), node));   
+        }   
+    }
+    
+/*    if (current == null) {
+        return new BinaryNode<>(node);
+    }
+
+    int comparison = node.compareTo(current.getData());
+    if (comparison < 0) {
+        current.setLeft(add(current.getLeft(), node));
+    } else if (comparison > 0) {
+        current.setRight(add(current.getRight(), node));
+    }
+
+    return current; */
+    return treeRoot;
+}
+"
+1342, Complete Course.compareTo(),1.0,11783,"For the Course class below to implements the Comparable interface, you must complete the compareTo method. Complete the compareTo() method in the class above as described below. The method takes as a parameter another Course, named other.","public int compareTo(Course other)
+{
+    if (other == null) {
+        return -1;
+    }
+
+    // Compare the department strings lexicographically
+    int deptComparison = this.dept.compareTo(other.dept);
+    
+    // If the departments are not equal, return the result of the comparison
+    if (deptComparison != 0) {
+        return deptComparison;
+    }
+
+    // If departments are equal, compare the course numbers
+    return Integer.compare(this.number, other.number);
+    
+    
+}
+"
+1343," Complete contains(Course[] courses, Course lookFor)",1.0,11783,"Using this Course class, complete the method below. Define the method contains() that takes two parameters: The method definition is: This method should return true if the course lookFor exists in courses, false otherwise. You must use a loop to iterate over the courses array.","boolean contains(Course[] courses, Course lookFor)
+{
+  // put your loop here
+  for(int i = 0;i <courses.length ; i++){
+   	if(courses[i] == lookFor){
+     	return true;   
+    }
+  }
+   return false;
+}
+"
+1344," Complete findItem(Course[] courses, Course lookFor)",1.0,11783,"Using this Course class, complete the method below. Define the method findItem() that takes two parameters: The method definition is: This method should return the index into courses where the course lookFor if found, a negative number otherwise. You must use a loop to iterate over the courses array.","int findItem(Course[] courses, Course lookFor)
+{
+  // put your loop here
+  for(int i = 0; i<courses.length; i++){
+   if(courses[i] == lookFor){
+    	return i  ; 
+   }
+  }
+   return -1;
+}
+"
+1345, Complete findSmallest(Course[] courses),1.0,11783,"Using this Course class, complete the method below. Define the method findSmallest() that an array of courses: This method returns the smallest value in the array of courses based on calls to compareTo(). You may assume that courses is never null nor empty. You must use a loop to iterate over the courses array.","Course findSmallest(Course[] courses)
+{
+  // put your loop here
+    Course min = courses[0];
+    
+    for(int i = 0; i<courses.length; i++){
+		if( min.compareTo(courses[i]) > 0){
+         	min = courses[i];   
+        }
+    }
+  return min;
+}
+"
+1347, Repeated?,12.0,12112,"Write a method repeated that returns true if the parameter lookFor appears more than one time in the array elements. It should return false if lookFor appears 0 or 1 time. Note that you don't know the type of data you are processing, so you have to use equals() to compare objects.","public boolean repeated(E[] elements, E lookFor)
+{
+    int count = 0;
+    for (E w : elements) {
+        if (w.equals(lookFor))
+            count++;
+    }
+
+    if (count > 1) return true;
+    else return false;
+}
+"
+1356, String suffix?,12.0,12112,"Write a method stringSuffix that returns true if the fullstring argument ends with the string stored in substring. It should return false otherwise. Examples: Note that you are NOT allowed to use any of startsWith(), endsWith() nor contains() but you may consult the String documentation for other methods to use.","public boolean stringSuffix(String fullstring, String substring) {
+    if (substring.length() > fullstring.length()) {
+        return false;
+    }
+    
+    String endOfFullstring = fullstring.substring(fullstring.length() - substring.length());
+    
+    return endOfFullstring.equals(substring);
+}
+"
+1354, Sum only digits,12.0,12112,"Write a hash key function that computes the sum of all digit characters in the key. Note that this is adding the ASCII value of the character, not the decimal value (e.g., '3' is 51). You could use the method Character.isDigit(char ch) to determine if a character is a digit (i.e. 0-9) or not. You may consult the Java documentation on Character and String for other methods to use. Examples:","public int hashkey(String key) {
+    int sum = 0; 
+    
+    for (int i = 0; i < key.length(); i++) {
+        char ch = key.charAt(i);
+        
+        if (Character.isDigit(ch)) {
+            sum += (int) ch;
+        }
+    }
+    
+    return sum;
+}
+"
+1124, Adding To Sets - 0 to 9,1.0,12142,"Add the numbers 0 to 9 to the set passed in as a parameter, and then return the set.","public Set<Integer> addToIntsSet(Set<Integer> intSet)
+{
+    for(int i = 0; i <= 9; i++){
+        intSet.add(i);
+    }
+    return intSet;
+}
+"
+1131, Set Contains - In Two Sets,1.0,12142,Write a method that will return true if the parameter value is in both of the given sets. Try to use only one line of code in the method.,"public boolean twoSetsContain(Set<Integer> set1, Set<Integer> set2, int value){
+     return set1.contains(value) && set2.contains(value);
+ 
+    
+}
+"
+1362, ArraySet - Constructor,1.0,12149,"In this first problem, you will declare the instance variable named 'set' of type ArrayList<E>. YOU MUST use the name set for this instance variable. In the constructor, instantiate the set by creating a new ArrayList<E>. The clear() method should just (re)create a new set as a way to initialize it. You can assume the class definition is there for you: You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","	private ArrayList<E> set;
+
+    public ArraySet() {
+     
+        set = new ArrayList<>();
+    }
+
+    public void clear() {
+       
+        set = new ArrayList<>();
+    }
+
+"
+1363, ArraySet - add(),1.0,12149,"In this second problem, you will complete the add() method. This method adds an element to the end of the instance variable (set) you created in the previous problem. Worthy of note, a set does not allow duplicates. So, your add() method should check if the element is contained in the set already. If it is, then don't add it and return false. If it is not in the set already, then add it and return true. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public boolean add(E element)
+{
+  if (set.contains(element)){
+      return false;
+  }
+    
+  set.add(element);
+   
+  return true;
+    
+}
+"
+1364, ArraySet - remove(),1.0,12149,"In this third problem, you will complete the remove method. This method removes an element from the set. This method returns true if the element is removed from the set, false otherwise. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public boolean remove(E element)
+{
+	if (set.contains(element)) {
+        
+        set.remove(element);
+        
+        return true;
+   }
+    
+   return false;
+   
+    
+}
+"
+1365, ArraySet - size(),1.0,12149,"In this fourth problem, you will complete the size method. This method returns the number of elements stored in the set. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public int size()
+{
+   return set.size();
+             
+}
+"
+1366, ArrayStack - Constructor,1.0,12156,"In this first problem, you will declare the instance variable named 'stack' of type ArrayList<E>. YOU MUST use the name stack for this instance variable. In the constructor, instantiate the stack by creating a new ArrayList<E>. The clear() method should just (re)create a new stack as a way to initialize it. You can assume the class definition is there for you: You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","// 1. Define instance variable here, name it stack
+   ArrayList<E> stack;
+//
+// Constructor
+public ArrayStack()
+{
+   // 2. Create new instance
+   stack = new ArrayList<E>();
+}
+public void clear()
+{
+   // 3. Empty the internal list that holds the values
+   // for the stack by simply creating a new one.
+   stack.clear();
+}
+"
+1367, ArrayStack - push,1.0,12156,"In this second problem, you will complete the push() method. This method adds an element to the top of the stack stored in the instance variable (stack) you created in the previous problem. Worthy of note, a stack is a LIFO - last in, first out structure. You always add at one end of the linear structure and remove from the same end. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public boolean push(E element)
+{
+   return stack.add(element);
+}
+"
+1368, ArrayStack - pop,1.0,12156,"In this third problem, you will complete the pop() method. This method removes (pops) the top element of the stack. Remember, the stack is stored in the instance variable (stack) you created in a previous problem. Worthy of note, a stack is a LIFO - last in, first out structure. You always add at one end of the linear structure and remove from the same end. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public E pop()
+{
+   // remove the top of the stack
+    if (stack.isEmpty()) return null;
+   return stack.remove(stack.size()-1);
+}
+"
+1369, ArrayStack - topValue,1.0,12156,"In this fourth problem, you will complete the topValue() method. This method returns the top element of the stack, WITHOUT removing it. Remember, the stack is stored in the instance variable (stack) you created in a previous problem. Worthy of note, a stack is a LIFO - last in, first out structure. You always add at one end of the linear structure and remove from the same end. You might want to look at the documentation for ArrayList to refresh your memory of how to use that class.","public E topValue()
+{
+   // return the top of the stack (without removing it)
+   if (stack.isEmpty()) return null;
+   return stack.get(stack.size()-1);
+}
+"
+1370, CircularQueue - frontValue,1.0,12169,"In this first problem, you will declare the frontValue() method for a circular array implementation of a queue. You can assume the full class definition is avilable for you. The constructor is shown below.","public E frontValue()
+{
+   // Your code here
+   return queue[front];
+}
+"
+1371, CircularQueue - enqueue,1.0,12169,"In this second problem, you will declare the enqueue() method for a circular array implementation of a queue. You can assume the full class definition is avilable for you. The constructor is shown below.","public boolean enqueue(E it)
+{
+   if (((rear+2) % maxSize) == front) {
+      return false;  // Full
+   }
+   else {
+      rear = (rear + 1) % maxSize;
+      queue[rear] = it;
+      count ++;
+      return true;
+      
+   }
+}
+"
+1372, CircularQueue - dequeue,1.0,12169,"In this third problem, you will declare the dequeue() method for a circular array implementation of a queue. You can assume the full class definition is avilable for you. The constructor is shown below.","public E dequeue() {
+    if (front == rear) {
+        return null;  // Queue is empty, return null
+    } else {
+        E element = queue[front];  // Get the front element
+        front = (front + 1) % maxSize;  // Move front to the next position
+        count--;  // Decrease count of elements
+        return element;  // Return the dequeued element
+    }
+}
+"
+1351, String prefix?,12.0,12196,"Write a method stringPrefix that returns true if the fullstring argument begins with the string stored in substring. It should return false otherwise. Examples: Note that you are NOT allowed to use any of startsWith(), endsWith() nor contains() but you may consult the String documentation for other methods to use.","public boolean stringPrefix(String fullstring, String substring)
+{
+   for(int i = 0; i<substring.length(); i++){
+    	   if(substring.charAt(i) != fullstring.charAt(i)){
+            	   return false;
+           }
+       
+   }
+    
+    return true;
+}
+"
+1352, Sum all characters,12.0,12196,Write a hash key function that computes the sum of all characters in the key. You may consult the Java documentation on Character and String for other methods to use.,"public int hashkey(String key)
+{
+   int sum = 0;
+   for (int i = 0; i <key.length(); i++){
+    	char ch = key.charAt(i);
+       sum += ch;
+   }
+    return sum;
+}
+"
+1382, Deque - back(),1.0,12259,"In this problem you will declare the back() method for a circular array implementation of a deque (pronounced 'deck'). This method returns the value at the back of a deque. A deque is a double ended queue. This data structure behaves like a queue but it has operations to add and remove from both front and back. The two sets of operations as defined in the next section. You can assume the full class definition is avilable for you. The constructor is shown below.  Important note: the index front is decremented after an element is added to the front, and incremented before an element is removed from the front. This means that the front element in the deque is at position front+1 % deque.length. On the other hand, back is incremented before adding an element on the back, and decremented after removing an element from the back. This means the element in the back of the deque is stored at location rear.","
+public E back() {
+  
+    if (count == 0) {
+        return null;  
+    }
+
+    
+    return deque[rear];
+}
+
+"
+1381, Deque - front(),1.0,12259,"In this problem you will declare the front() method for a circular array implementation of a deque (pronounced 'deck'). This method returns the value at the front of a deque. A deque is a double ended queue. This data structure behaves like a queue but it has operations to add and remove from both front and back. The two sets of operations as defined in the next section. You can assume the full class definition is avilable for you. The constructor is shown below.  Important note: the index front is decremented after an element is added to the front, and incremented before an element is removed from the front. This means that the front element in the deque is at position front+1 % deque.length. On the other hand, back is incremented before adding an element on the back, and decremented after removing an element from the back. This means the element in the back of the deque is stored at location rear.","
+public E front() {
+ 
+    if (count == 0) {
+        return null; 
+    }
+
+  
+    return deque[(front + 1) % deque.length];
+}
+
+"
+1383, Deque - push_front(),1.0,12259,"In this problem you will declare the push_front() method for a circular array implementation of a deque (pronounced 'deck'). This method pushes the value at the front of a deque. A deque is a double ended queue. This data structure behaves like a queue but it has operations to add and remove from both front and back. The two sets of operations as defined in the next section. You can assume the full class definition is avilable for you. The constructor is shown below.  Important note: the index front is decremented after an element is added to the front, and incremented before an element is removed from the front. This means that the front element in the deque is at position front+1 % deque.length. On the other hand, back is incremented before adding an element on the back, and decremented after removing an element from the back. This means the element in the back of the deque is stored at location rear.","// Add an element to the at the beginning.
+// @param element is the data to be added to the deque.
+// @return true if the element was added, false otherwise.
+public boolean push_front(E element)
+{
+    // Check if the deque is full
+    if (count == deque.length) {
+        return false; // Deque is full, cannot add element
+    }
+
+    // Decrement front index, considering circular array
+    front = (front - 1 + deque.length) % deque.length;
+
+    // Add the element at the new front index
+    deque[(front + 1) % deque.length] = element; // Corrected here
+
+    // Increment count
+    count++;
+
+    return true; // Element added successfully
+}
+"
+1384, Deque - pop_front(),1.0,12259,"In this problem you will declare the pop_front() method for a circular array implementation of a deque (pronounced 'deck'). This method removes (pop) and returns the value at the front of a deque. A deque is a double ended queue. This data structure behaves like a queue but it has operations to add and remove from both front and back. The two sets of operations as defined in the next section. You can assume the full class definition is avilable for you. The constructor is shown below.  Important note: the index front is decremented after an element is added to the front, and incremented before an element is removed from the front. This means that the front element in the deque is at position front+1 % deque.length. On the other hand, back is incremented before adding an element on the back, and decremented after removing an element from the back. This means the element in the back of the deque is stored at location rear.","// Remove the element from the front of the 
+// deque and return it. Removes the front element.
+// @return element from the front of the deque or null if
+
+public E pop_front() {
+    if (count == 0) {
+       
+        return null;
+    }
+
+    front = (front + 1) % deque.length;
+
+    E element = deque[front];
+
+  
+    count--;
+
+ 
+    return element;
+}
+
+"
+1385, Deque - pop_back(),1.0,12259,"In this problem you will declare the pop_back() method for a circular array implementation of a deque (pronounced 'deck'). This method removes (pop) and returns the value at the back of a deque. A deque is a double ended queue. This data structure behaves like a queue but it has operations to add and remove from both front and back. The two sets of operations as defined in the next section. You can assume the full class definition is avilable for you. The constructor is shown below.  Important note: the index front is decremented after an element is added to the front, and incremented before an element is removed from the front. This means that the front element in the deque is at position front+1 % deque.length. On the other hand, back is incremented before adding an element on the back, and decremented after removing an element from the back. This means the element in the back of the deque is stored at location rear.","// Remove the element from the back of the 
+// deque and return it.
+// @return element from the back of the deque or null if
+public E pop_back() {
+    if (count == 0) {
+       
+        return null;
+    }
+
+  
+    rear = (rear - 1 + deque.length) % deque.length;
+
+   
+    E element = deque[rear];
+
+  
+    count--;
+
+  
+    return element;
+}
+
+"
+1386, Deque - push_back(),1.0,12259,"In this problem you will declare the push_back() method for a circular array implementation of a deque (pronounced 'deck'). This method pushes the value at the back of a deque. A deque is a double ended queue. This data structure behaves like a queue but it has operations to add and remove from both front and back. The two sets of operations as defined in the next section. You can assume the full class definition is avilable for you. The constructor is shown below.  Important note: the index front is decremented after an element is added to the front, and incremented before an element is removed from the front. This means that the front element in the deque is at position front+1 % deque.length. On the other hand, back is incremented before adding an element on the back, and decremented after removing an element from the back. This means the element in the back of the deque is stored at location rear.","// Add an element to the back.
+// @param element is the data to be added to the deque.
+// @return true if the element was added, false otherwise.
+public boolean push_back(E element) {
+    // Check if the deque is full
+    if (count == deque.length) {
+        return false; // Cannot add element as deque is full
+    }
+
+    // Increment the rear index and wrap around if necessary
+    rear = (rear + 1) % deque.length;
+
+    // Add the element at the rear index
+    deque[rear] = element;
+
+    // Increment the count of elements
+    count++;
+
+    return true; // Element added successfully
+}"
+405, iterateOverList,1.0,12272,"Consider the following class definition: Write a while loop to make q refer successively to each Node in the linked list headed by p. q must end up referring to the last Node in the list. Given that the list L contains the elements ['_','_','_','_'] and p and q both point to the first '_'. Here is the initial set up:  and here is the expected final configuration ","public Link iterateOverList(Link p, Link q)
+{
+	q = p;
+    while (q.next != null)
+        q = q.next;    
+    return q;
+}
+"
+29, factorial,1.0,12318,Write a function in Java called factorial() that will take a positive integer as input and returns its factorial as output.,"public int factorial(int n)
+{
+    if (n == 0 || n == 1){
+        return 1;
+    }
+    return n * factorial(n-1);
+}
+"
+356, Perrin Numbers,1.0,12318,"In mathematics, the Perrin Numbers are defined by the recursion relation P(n) = P(n - 2) + P(n -3) for n > 2 with initial values Define a recursive function that gives the nth term in the Perrin sequence. Examples:","public int perrinNumber(int n) 
+{
+	if (n == 0) return 3;
+    else if (n == 1) return 0;
+    else if (n == 2) return 2;
+    else {
+        return perrinNumber(n-2) + perrinNumber(n-3);
+    }
+}
+"
+364, Fibonacci,1.0,12318,"In mathematics, the Fibonacci numbers are the numbers in the following integer sequence, characterized by the fact that every number after the first two is the sum of the two preceding ones: 0, 1, 1, 2, 3, 5, 8, 13, ... Write a recursive function that the returns the nth fibonacci number. Examples:","public int fibonacci(int n) {
+    if (n == 0){
+        return 0;
+    } else if(n == 1){
+        return 1;
+    }
+    return fibonacci(n - 1) + fibonacci (n - 2); 
+}
+"
+1216, Lucas Numbers,1.0,12318,"In mathematics, the Lucas Numbers are a sequence of numbers defined by the recursive relation. L(n) = L(n - 1) + L(n - 2) for n > 1 with initial values Define a recursive function that gives the nth term in the Lucas sequence. Examples:","public int lucasNumber(int n)
+{
+	if (n == 0) return 2;
+    else if (n == 1) return 1;
+    else {
+        return lucasNumber(n-1) + lucasNumber(n-2);
+    }
+
+}
+"
+1217, Padovan sequence,1.0,12318,"In mathematics, the Padovan sequence is a sequence of numbers defined by the recursive relation below. PN is short for Padovan Number. PN(n) = PN(n - 2) + PN(n - 3) for n > 2 with initial values Define a recursive function, padovanSequence that returns the nth term in the Padovan sequence. Examples:","public int padovanSequence(int n)
+{
+	if (n == 0) return 1;
+    else if (n == 1) return 1;
+    else if (n == 2) return 1;
+    else {
+        return padovanSequence(n-2) + padovanSequence(n-3);
+    }
+}
+"
+459, Review - Fibonacci,1.0,12325,"In mathematics, the Fibonacci numbers are the numbers in the following integer sequence, characterized by the fact that every number after the first two is the sum of the two preceding ones: 0, 1, 1, 2, 3, 5, 8, 13, ... Write a recursive function that the returns the nth fibonacci number. Examples:","public int fibonacci(int n) {
+    if (n < 2) {
+        return n;
+    } else {
+        return (fibonacci(n-1) + fibonacci(n-2));
+    }
+    
+}
+"
+159, sumDigits,1.0,12325,"Given a non-negative int n, return the sum of its digits recursively (no loops). Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).","public int sumDigits(int n)
+{
+    if (n == 0) {
+        return 0;
+    }else {
+        return (n % 10 + sumDigits(n / 10));
+    }
+    
+}
+"
+167, countHi,1.0,12325,"Given a string, compute the number of times lowercase ""hi"" appears in the string. Make the countHi be recursive. Examples:","public int countHi(String str)
+{
+    if (str.length() < 2) {
+        return 0;
+    }
+    if (str.substring(0 , 2).equals(""hi"")) {
+        return 1 + countHi(str.substring(2));
+    } else {
+        return countHi(str.substring(1));
+    }
+}
+"
+271, Minimum of array,1.0,12325,"For function recursiveMin, write the missing part of the recursive call. This function should return the minimum element in an array of integers. You should assume that recursiveMin is initially called with startIndex = 0. Examples:","public int recursiveMin(int numbers[], int startIndex) {
+  if (startIndex == numbers.length - 1) {
+    return numbers[startIndex];
+  } else {
+    return Math.min(numbers[startIndex], recursiveMin(numbers , startIndex+1));
+  }
+}
+"
+471, Graphs - Graph Density,1.0,12340,Given is the number of edges and vertices in a directed graph. Using this information return the density of the graph. Number of possible edges for a directed graph = 2 * ((n * (n - 1) / 2)) where n is the number of vertices Density = (number of edges / number of possible edges) If the graph only contains one vertex it has a density of 1.0 Examples:,"public double density(int n, int numEdges)
+{
+    if (n == 1) return 1.0;
+    else 
+    return numEdges / (2.0 * (n * ( n - 1) / 2.0));
+}
+"
+1393, Return the last node,10.0,12347,"Using this class definition: Write a method findLastNode(Node<E> h) that returns a reference to the last node in the chain of nodes pointed to by h. Do not create a new node, just move a reference down the chain until you reach the last node. Then return that reference.","public Node<E> findLastNode(Node<E> h)
+{
+   // write a loop to find the last node
+   while (h.getNext() != null)
+       h = h.getNext();
+   return h;
+}
+"
+1392, Use a Queue to reverse a Stack,10.0,12347,"Write a method reverseStack(Stack s) that reverses the elements in stack s. For example, if s has ""A"" (top), ""B"", ""C"" then after reverseStack(s), the stack s should have ""C"" (top), ""B"", ""A"". You can do this by using a queue to store all elements from s. Then take out the values in queue (dequeue), and push them back onto the stack s. You must use a Queue to solve the problem. The interface for Stack and Queue is given below for reference.","void reverseStack(Stack s)
+{
+    Queue q = new Queue();
+    while (!s.isEmpty())
+        q.enqueue(s.pop());
+    while (!q.isEmpty())
+        s.push(q.dequeue());
+}
+"
+1394, Insert a node,10.0,12347,"Using the Node class definition shown, write a method insertNode(Node<Integer> head, int data) that inserts a new node into a chain of nodes preserving the increasing order of values in the chain. The chain of nodes starting at head maintains list of numbers in order. The smallest value is stored at the beginning of the list (the head of the list) and the largest value is at the end of the list. For example, this is a valid list: You must write a methodinsertNode(Node<Integer> head, int data) that finds the place in the list where a new Node will be inserted. The new node will contain the data element. The method should set the next references appropriately such that the increasing order of the values in the chain is maintained. For example with the above list, inserting a 5 produces: Where as, inserting 15 would have this effect: And finally, inserting 100 would result: As you see, there are three main cases to consider.","public Node<Integer> insertNode(Node<Integer> head, int data)
+{
+   Node<Integer> ref = head;
+   Node<Integer> n = new Node<Integer>(data);
+   while (ref.getNext() != null) {
+       if (data <= ref.getData())
+			n.setNext(ref);
+       ref = ref.getNext();
+   }
+   return n;
+       
+}
+"
+1396, Implement a Stack using ListArray,10.0,12347,"Implement a Stack push(), pop(), and topValue() using a ListArray in such a way that it provides the best Big O() possible for these operations. You must decide if you add elements at the front or at the back of the list given the appropriate implementation. The Stack class is defined as: You have to implement push(), pop(), and topValue(). These methods must use the ListArray object stored in implementation to provide the behavior for the Stack. You may not use ArrayList or any of the Java predefined collection classes.","public boolean push(E element)
+{
+    // do the work of storing 'element'
+    // returns true if successful
+    implementation.add(element);
+    return true;
+    
+}
+public E pop()
+{
+    // removes and returns the top of the stack
+    // or returns null if stack is empty
+    if (isEmpty())
+        return null;
+    E top = implementation.get(size() - 1);
+    implementation.remove(size() - 1);
+    return top;
+}
+public E topValue()
+{
+    // returns the top of the stack
+    // or returns null if stack is empty
+    if (isEmpty())
+        return null;
+    return implementation.get(size() - 1);
+}
+"
+263, Largest,1.0,12355,"Write the missing base case for function largest. Function largest should find the largest number in array numbers. When largest is first called, index will equal numbers.length-1. Examples:","public int largest(int[] numbers, int index) {
+  if (index == 0)
+    return numbers[0];
+  return Math.max(numbers[index], largest(numbers, index-1));
+}
+"
+264, Multiply,1.0,12355,"For function multiply, write the missing base case condition and action. This function will multiply two numbers x and y. You can assume that both x and y are positive. Examples:","public int multiply(int x, int y) {
+  if (x == 0) {
+      return 0;
+  } else if (y == 0) {
+      return 0;
+  } else {
+    return multiply(x - 1, y) + y;
+  }
+   
+}
+"
+265, GCD,1.0,12355,"The greatest common divisor (GCD) for a pair of numbers is the largest positive integer that divides both numbers without remainder. For function GCD, write the missing base case condition and action. This function will compute the greatest common divisor of x and y. You can assume that x and y are both positive integers and that x > y. Greatest common divisor is computed as follows:
+GCD(x, 0) = x and GCD(x, y) = GCD(y, x % y). Examples:","public int GCD(int x, int y) {
+  if (y == 0) {
+	return x;
+  } else {
+    return GCD(y, x % y);
+  }
+}
+"
+267, Cumulative Sum,1.0,12355,"For function sumtok, write the missing recursive call. This function returns the sum of the values from 1 to k. Examples:","public int sumtok(int k) {
+  if (k <= 0) {
+    return 0;
+  } else {
+    return k + sumtok(k - 1);
+  }
+}
+"
+268, Add odd values,1.0,12355,For function addOdd(n) write the missing recursive call. This function should return the sum of all postive odd numbers less than or equal to n. Examples:,"public int addOdd(int n) {
+    if (n <= 0) {
+        return 0; // Base case: if n is less than or equal to 0, return 0
+    }
+    if (n % 2 != 0) { // If n is odd
+        return n + addOdd(n - 2); // Include n in the sum and call with n - 2
+    } else { // If n is even
+        return addOdd(n - 1); // Skip the even number and call with n - 1
+    }
+}
+"
+269, Sum of the Digits,1.0,12355,"For function sumOfDigits, write the missing recursive call. This function takes a non-negative integer and returns the sum of its digits. Examples:","public int sumOfDigits(int number) {
+    if (number < 10) {
+        return number; // Base case: if the number is a single digit, return it
+    }
+    return (number % 10) + sumOfDigits(number / 10); // Add last digit to the sum of the rest
+}
+"
+1107, Complete method makeTree-1,1.0,12364,Use the BinaryNode<E> class shown below to answer this problem. Complete the method makeTree() that will return the root of the tree representing the binary tree shown in the image below. ,"BinaryNode<Integer> makeTree()
+{
+    BinaryNode<Integer> root = new BinaryNode<>(13, new BinaryNode<Integer>(18, new BinaryNode<Integer>(19, null, null), new BinaryNode<Integer>(17, null, null)), new BinaryNode<Integer>(10, null, new BinaryNode<Integer>(48, null, null)));
+  return root;
+}
+"
+1108, Complete method makeTree-2,1.0,12364,Use the BinaryNode<E> class shown below to answer this problem. Complete the method makeTree() that will return the root of the tree representing the binary tree shown in the image below. ,"BinaryNode<Integer> makeTree()
+{
+	BinaryNode<Integer> root = new BinaryNode<Integer>(15,new BinaryNode<Integer>(10,new BinaryNode<Integer>(12, null, null),new BinaryNode<Integer>(23,null,null)),new BinaryNode<Integer>(21,new BinaryNode<Integer>(20,null,null),new BinaryNode<Integer>(19,null,null)));
+    return root;
+}
+"
+1319, Complete method makeTree-3,1.0,12364,Use the BinaryNode<E> class shown below to answer this problem. Complete the method makeTree() that will return the root of the tree representing the binary tree shown in the image below. ,"BinaryNode<Integer> makeTree()
+{
+  BinaryNode<Integer> root = new BinaryNode<Integer>(38,new BinaryNode<Integer>(12,null,null),new BinaryNode<Integer>(11,null,new BinaryNode<Integer>(91,null,new BinaryNode<Integer>(98,null,null))));
+    
+    return root;
+}
+"
+1109, Complete method isFull,1.0,12364,"Define a recursive method isFull() that checks to see if the tree represented by root is full. The definition of a full binary tree is: Definition: Every node has two children or is a leaf (i.e. has no children) For your solution, it will help to structure the code following the definition of a full tree.","boolean isFull(BinaryNode<E> root)
+{
+	if (root == null)
+  	{
+      return true;
+	}
+    if (root.getLeft() == null && root.getRight() != null || root.getLeft() != null && root.getRight() == null )
+    {
+    	return false;
+   	}
+    return isFull(root.getLeft()) && isFull(root.getRight());
+}
+"
+1105, Complete method isLeaf,1.0,12364,"Define the method isLeaf(BinaryNode<E> node) to return true if the node is a leaf node in a binary tree, false otherwise. Note that this is not a recursive routine.","boolean isLeaf(BinaryNode<E> node)
+{
+  if (node.getLeft() == null && node.getRight() == null){
+      return true;
+  } else {
+      return false;
+  }
+}
+"
+1407, Complete isLeaf for array-based trees,1.0,12364,"Define the method isLeaf(E[] tree, int node) to return true if the node stored at position node is a leaf node in a binary tree, false otherwise. A leaf node is also known as a terminal node. Note that this is not a recursive routine. This routine uses the array-based representation of binary tree where a node is stored at position i and their children are stored at i * 2 + 1 for the left child and at i * 2 + 2 for their right child. If a position in the tree is unused, then the corresponding location has a null value. You may assume that node is less than the size of the array storing the tree (node < tree.length) and that there is an actual node stored at position node.","public boolean isLeaf(E[] tree, int node)
+{
+    if ((tree[node * 2 + 1]) == null && (tree[node * 2 + 2]) == null){
+        return true;
+    } else{
+        return false;
+    }
+}
+"
+1106, Complete method isInternal,1.0,12364,"Define the method isInternal(BinaryNode<E> node) to return true if the node is an internal node in a binary tree, false otherwise. Note that this is not a recursive routine.","boolean isInternal(BinaryNode<E> node)
+{
+  if (node.getLeft() != null || node.getRight() != null){
+      return true;
+  } else {
+      return false;
+  }
+}
+"
+1406, Complete isInternal for array-based trees,1.0,12364,"Define the method isInternal(E[] tree, int node) to return true if the node stored at position node is an internal node in a binary tree, false otherwise. Note that this is not a recursive routine. This routine uses the array-based representation of binary tree where a node is stored at position i and their children are stored at i * 2 + 1 for the left child and at i * 2 + 2 for their right child. If a position in the tree is unused, then the corresponding location has a null value. You may assume that node is less than the size of the array storing the tree (node < tree.length) and that there is an actual node stored at position node.","public boolean isInternal(E[] tree, int node)
+{
+    if (tree[node * 2 + 1] != null || tree[node * 2 + 2] != null){
+        return true;
+    } else {
+        return false;
+    }
+}
+"
+1397, Implement a Stack using ListNodes,10.0,12371,"Implement a Stack push(), pop(), and topValue() using a ListNode in such a way that it provides the best Big O() possible for these operations. You must decide if you add elements at the front or at the back of the list given the appropriate implementation. The Stack class is defined as: You have to implement push(), pop(), and topValue(). These methods must use the ListNode object stored in implementation to provide the behavior for the Stack. You may not use ArrayList or any of the Java predefined collection classes.","public boolean push(E element)
+{
+    implementation.add(0, element); 
+    return true;
+}
+
+public E pop()
+{
+    if (implementation.size() == 0) {
+        return null;
+    }
+    return implementation.remove(0);
+}
+
+public E topValue()
+{
+    if (implementation.size() == 0) {
+        return null;
+    }
+    return implementation.get(0);
+}
+"
+1408, PreOrder Tree traversal 1,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by pre-order traversal. Remember pre-order means N-L-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    
+37,24,7,2,32,42,41,40,120"
+1409, PreOrder Tree traversal 2,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by pre-order traversal. Remember pre-order means N-L-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    11,18,13,19,16,22,30
+"
+1410, PreOrder Tree traversal 3,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by pre-order traversal. Remember pre-order means N-L-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    11,18,13,19,16,30
+"
+1411, PreOrder Tree traversal 4,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by pre-order traversal. Remember pre-order means N-L-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    11,18,13,16,22,30
+"
+1412, PreOrder Tree traversal 5,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by pre-order traversal. Remember pre-order means N-L-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    11,18,13,19,16,22
+"
+1413, PreOrder Tree traversal 6,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by pre-order traversal. Remember pre-order means N-L-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    11,18,13,19,16
+"
+1415, InOrder Tree traversal 1,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by in-order traversal. Remember in-order means L-N-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    2,7,24,32,37,40,41,42,120
+"
+1416, InOrder Tree traversal 2,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by in-order traversal. Remember in-order means L-N-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    13,18,19,11,22,16,30
+"
+1417, InOrder Tree traversal 3,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by in-order traversal. Remember in-order means L-N-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    13,18,19,11,16,30
+"
+1418, InOrder Tree traversal 4,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by in-order traversal. Remember in-order means L-N-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    13,18,11,22,16,30
+"
+1419, InOrder Tree traversal 5,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by in-order traversal. Remember in-order means L-N-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    13,18,19,11,22,16
+"
+1420, InOrder Tree traversal 6,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by in-order traversal. Remember in-order means L-N-R.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    13,18,19,11,16
+"
+1414, LevelOrder Tree traversal 1,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by level-order traversal. Remember level-order means traversing from top down in order of level (duh).  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    37,24,42,7,32,41,120,2,40
+"
+1421, PostOrder Tree traversal 1,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by post-order traversal. Remember post-order means L-R-N.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    2,7,32,24,40,41,120,42,37
+"
+1422, PostOrder Tree traversal 2,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by post-order traversal. Remember post-order means L-R-N. Enter the node numbers separated by commas, nothing else. ","// enter the nodes below as 10,20,30
+    13,19,18,22,30,16,11
+"
+1423, PostOrder Tree traversal 3,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by post-order traversal. Remember post-order means L-R-N. Enter the node numbers separated by commas, nothing else. ","// enter the nodes below as 10,20,30
+	13,18,19,30,16,11"
+1424, PostOrder Tree traversal 4,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by post-order traversal. Remember post-order means L-R-N. Enter the node numbers separated by commas, nothing else. ","// enter the nodes below as 10,20,30
+    13,18,22,30,16,11
+"
+1425, PostOrder Tree traversal 5,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by post-order traversal. Remember post-order means L-R-N. Enter the node numbers separated by commas, nothing else. ","// enter the nodes below as 10,20,30
+    13,19,18,22,16,11
+"
+1431, LevelOrder Tree traversal 6,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by level-order traversal. Remember level-order means traversing from top down in order of level (duh).  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    11,18,16,13,19
+"
+1427, LevelOrder Tree traversal 2,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by level-order traversal. Remember level-order means traversing from top down in order of level (duh).  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    11,18,16,13,19,22,30
+"
+1428, LevelOrder Tree traversal 3,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by level-order traversal. Remember level-order means traversing from top down in order of level (duh).  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    
+11,18,16,13,19,30"
+1429, LevelOrder Tree traversal 4,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by level-order traversal. Remember level-order means traversing from top down in order of level (duh).  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    11,18,16,13,22,30
+"
+1430, LevelOrder Tree traversal 5,1.0,12384,"For the given tree below, write down the order of the nodes visited in the order dictated by level-order traversal. Remember level-order means traversing from top down in order of level (duh).  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+    11,18,16,13,19,22
+"
+1426, PostOrder Tree traversal 6,1.0,12398,"For the given tree below, write down the order of the nodes visited in the order dictated by post-order traversal. Remember post-order means L-R-N.  Enter just the node numbers separated by commas, nothing else.","// enter the nodes below as 10,20,30
+13, 19, 18, 16, 11"
+266, log,1.0,12398,"For function log, write the missing base case condition and the recursive call. This function computes the log of n to the base b. As an example: log 8 to the base 2 equals 3 since 8 = 2*2*2. We can find this by dividing 8 by 2 until we reach 1, and we count the number of divisions we make. You should assume that n is exactly b to some integer power. Examples:","public int log(int b, int n ) {
+  if (n == 1) {
+    return 0;
+  } else {
+    return 1 + log(b , n / b);
+  }
+}
+"
+1439, InClass Activity Post,1.0,12417,"For the given tree below, write down the order of the nodes visited in the order dictated by post-order traversal. Enter just the node numbers separated by commas, nothing else. ","// enter the nodes below as 10,20,30
+    
+21,24,13,17,23,19,20,10,31,15,30,22"
+1440, InClass Activity Pre,1.0,12417,"For the given tree below, write down the order of the nodes visited in the order dictated by pre-order traversal. Enter just the node numbers separated by commas, nothing else. ","// enter the nodes below as 10,20,30
+    
+22,20,13,21,24,19,17,23,30,31,10,15"
+1441, InClass Activity In,1.0,12417,"For the given tree below, write down the order of the nodes visited in the order dictated by in-order traversal. Enter just the node numbers separated by commas, nothing else. ","// enter the nodes below as 10,20,30
+    
+21,13,24,20,17,19,23,22,31,10,30,15"
+1443, InClass Activity Level,1.0,12417,"For the given tree below, write down the order of the nodes visited in the order dictated by level-order traversal. Enter just the node numbers separated by commas, nothing else. ","// enter the nodes below as 10,20,30
+    
+22,20,30,13,19,31,15,21,24,17,23,10"
+1444, Sum all values in tree,1.0,12458,"Complete the method sumNodes such that it returns the sum of all the values stored in the nodes of the binary tree passed in as an argument in root. The full method definition is int sumNodes(BinaryNode<Integer> root). Remember the typical structure of a recursive routine for processing trees includes checking for the base case (tree == null), and dividing up the problem into three related and connected parts, visit the node (root), then do recursive calls for the left and right subtrees. Then, of course, you combine the results returning a value to the calling routine.","public int sumNodes(BinaryNode<Integer> root)
+{
+	if (root == null)
+        return 0;
+    else {
+        return
+            root.getValue() +
+            sumNodes(root.getLeft()) +
+            sumNodes(root.getRight());
+    }
+}
+"
+1445, Multiply all values in tree,1.0,12458,"Complete the method multiplyNodes such that it returns the multiplication of all the values stored in the nodes of the binary tree passed in as an argument in root. The full method definition is int multiplyNodes(BinaryNode<Integer> root). Remember the typical structure of a recursive routine for processing trees includes checking for the base case (tree == null), and dividing up the problem into three related and connected parts, visit the node (root), then do recursive calls for the left and right subtrees. Then, of course, you combine the results returning a value to the calling routine. There is a special case, if the tree is empty, multiplyNodes should return 1.","public int multiplyNodes(BinaryNode<Integer> root)
+{
+    if (root == null) {
+        return 1;
+    }
+    else {
+        return
+            root.getValue() *
+            multiplyNodes(root.getLeft()) *
+            multiplyNodes(root.getRight());
+    }
+}
+"
+1447, contains() in tree,1.0,12458,"Complete the method contains such that it returns true if value is stored in any of the nodes of the tree, false otherwise. The full method definition is boolean contains(BinaryNode<E> root, E value). Note that the tree can contain any value (generic class), thus you must use equals() to check if value is stored in the tree.","public boolean contains(BinaryNode<E> root, E value)
+{
+    if (root == null)
+        return false;
+    else {
+        if (value.equals(root.getValue()))
+            return true;
+        else {
+            return contains(root.getLeft(), value) ||
+                contains(root.getRight(), value);
+        }
+    }
+}
+"
+1446, Find the maximum value in a tree,1.0,12458,Complete the method findMax such that it returns maximum value stored in the binary tree passed in as an argument in root. The full method definition is int findMax(BinaryNode<Integer> root).,"public int findMax(BinaryNode<Integer> root)
+{
+    if (root == null) return 0; // Integer.MIN_VALUE
+    else {
+        int rt = root.getValue();
+        int lc = findMax(root.getLeft());
+        int rc = findMax(root.getRight());
+        
+        return Math.max(rt, Math.max(lc, rc));
+    }
+}
+"
+1448, Reorder Left and Right Subtree,1.0,12471,"Write a recursive routine BinaryNode<node> swapLR(BinaryNode<Integer> root) that exchanges the left and right subtrees of a node. This should work for any size tree. Needless to say, this is a recursive routine. There is no need to create new nodes, just change the left and right values (setLeft() and setRight() in place).","public BinaryNode<Integer> swapLR(BinaryNode<Integer> root)
+{
+	if (root == null) 
+        return null;
+    else {
+        BinaryNode<Integer> l = swapLR(root.getLeft());
+        BinaryNode<Integer> r = swapLR(root.getRight());
+        root.setLeft(r);
+        root.setRight(l);
+        return root;
+    }        
+}
+"
+1449, Parenthesis notation,1.0,12471,"Often when compilers process expressions, they build an expression tree that can then be processed efficiently and unambiguously to compute the value of the tree. For example, the expression (2 * 4) + 5 can be represented by the expression tree shown below. With what you know about binary tree traversals, you should be able to write a recursive routine to take a binary tree storing strings and return a string expression formatted in infix notation. Note that you must include parenthesis around operations (+, *, etc) to ensure the order of evaluation is correct. Conversely, if a node is a leaf node, then no parenthesis are needed. The tree below can be represented as a string as ((2 * 4) + 5). Write the String infixNotation(BinaryNode<String> root) method converts a binary tree into a string representation of the tree in infix notation using parenthesis to enforce order of operations. ","public String infixNotation(BinaryNode<String> root)
+{
+  if (root == null)
+  {
+        return """";
+  }
+	String left = infixNotation(root.getLeft()); 
+    String right = infixNotation(root.getRight()); 
+    if (!left.equals("""") || !right.equals("""")) 
+    { 
+        return ""("" + left + "" "" + root.getValue() + "" "" + right + "")""; 
+    } 
+    else 
+    { 
+        return root.getValue();  
+    }
+}"
+1450, Recursive Sequence,1.0,12512,"A numeric sequence is a series of numbers defined by a recursive formula as the one shown below: Write the recursive function f that computes the series define above. The second parameter,k, can be any integer value. Examples:","public  int f(int n, int k)
+{
+    if (n == 0) return 1;
+    if (n == 1) return 2;
+    return f(n-1, k) + f(n-2, k) + k;
+}
+"
+1451, Create a binary tree,1.0,12512,"Use the BinaryNode<E> class shown below to answer this problem. Complete the method makeTree() that will return the root of the tree representing the parenthesized notation shown below. (G (J - D) (B (X Y Z) -)) This is a general binary tree where the notation (A B C) means A is the root of the tree, B is the left child, and C is the right child. We normally use a hyphen - to designate a null child. Thus the tree (A B -) has a BinaryNode<String> with A at the root, B as the left child (also a BinaryNode<String>) and a null value for the right child.","public BinaryNode<String> makeTree()
+{
+    BinaryNode<String> root = new BinaryNode<String>(""G"", 
+             new BinaryNode<String>(""J"", null, new BinaryNode<String>(""D"")), 
+             new BinaryNode<String>(""B"", 
+                  new BinaryNode<String>(""X"",  new BinaryNode<String>(""Y""), new BinaryNode<String>(""Z"")), null));
+    return root;
+
+}
+"
+1452, Count nodes with Strings longer than minLen,1.0,12512,"Use the BinaryNode<E> class shown below to answer this problem. Define a recursive method countStrLonger() that counts all the nodes in the tree that contains a string that is longer than minLen. This method returns the number of nodes. Make sure you check that the string length stored in the node value is larger than the minLen. You can get the string length by calling the length() method of the value returned by getValue(). As example, consider that root points to the tree shown below, the following calls show what the routine should return under various parameters. ","public int countStrLonger(BinaryNode<String> root, int minLen)
+{
+    if (root == null) return 0;
+    if (root.getLeft() == null && root.getRight() == null){
+        if (root.getValue().length() > minLen) return 1;
+        else return 0;
+    }
+    
+    int count = 0;
+   	if (root.getValue().length() > minLen)
+        count += 1;
+    
+    
+    return count + countStrLonger(root.getLeft(), minLen) 
+                 + countStrLonger(root.getRight(), minLen);
+
+}
+"
+1453, Complete in-order traversal of array-based trees,1.0,12512,"Define a recursive method inOrder(String[] tree, int node) to traverse the tree stored in tree starting at node. Typically node will start at 0, the root of the tree. This method should do an in-order traversal (LNR) of the tree stored in an array-based representation. This routine uses the array-based representation of binary tree where a node is stored at position i and their children are stored at i * 2 + 1 for the left child and at i * 2 + 2 for their right child. If a position in the tree is unused, then the corresponding location has a null value. The method should build a string with the nodes traversed stored in order and return that string. Remember to put spaces between nodes in the result string. But don't worry about having too many spaces, they will be ignored in the testing as long as there is at least one space between nodes. The tree shown below, as example, represents the tree (C (F H D) E) and has an array based representation shown in the table to the right. A call to inOrder(tree, 0) should produce H F D C E.  ","public String inOrder(String[] tree, int node)
+{
+    if (tree == null || tree[node] == null || node < 0 || node > tree.length) return """";
+    if (tree[2*node + 1] == null && tree[2*node +2] == null) return tree[node];
+    
+    return "" "" + inOrder(tree, 2*node + 1) + "" "" + tree[node] + "" "" + inOrder(tree, 2*node + 2) + "" "";
+}
+"
+1460, Build a graph,1.0,12536,"Use the GraphADT definition in the itsc2214 package to build a graph that represents the image shown below.  The GraphADT has the following relevant method: void addEdge(int v, int w) Adds a new edge from node v to node w. Parameters v and w are both indices into the internal adjacency matrix representation. Write a method buildGraph that returns an updated GraphADT object with the edges added to build the graph shown in the image above.","public GraphADT buildGraph(GraphADT g)
+{
+   // modify g by calling addEdge()
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 3);
+    g.addEdge(2, 3);
+    g.addEdge(3, 4);
+    return g;
+}
+"
+1461, Build a graph,1.0,12536,"Use the GraphADT definition in the itsc2214 package to build a graph that represents the image shown below.  The GraphADT has the following relevant method: void addEdge(int v, int w) Adds a new edge from node v to node w. Parameters v and w are both indices into the internal adjacency matrix representation. Write a method buildGraph that returns an updated GraphADT object with the edges added to build the graph shown in the image above.","public GraphADT buildGraph(GraphADT g)
+{
+   // modify g by calling addEdge()
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 3);
+    g.addEdge(1, 4);
+    g.addEdge(3, 4);
+    g.addEdge(2, 3);
+    g.addEdge(4, 2);
+   return g;
+}
+"
+1462, Build a weighted graph,1.0,12536,"Use the GraphADT definition in the itsc2214 package to build a graph that represents the image shown below.  The GraphADT has the following relevant method: void addEdge(int v, int w, int weight) Adds a new edge from node v to node w with cost weight. Parameters v and w are both indices into the internal adjacency matrix representation. The parameter weight is the cost of that edge. Write a method buildGraph that returns an updated GraphADT object with the edges added to build the graph shown in the image above.","public GraphADT buildGraph(GraphADT g)
+{
+   // modify g by calling addEdge()
+   
+    g.addEdge(0, 1, 4);
+    g.addEdge(0, 2, 3);
+    g.addEdge(1, 3, 2);
+    g.addEdge(2, 3, 5);
+    g.addEdge(2, 4, 6);
+    g.addEdge(3, 4, 6);
+   return g;
+}
+"
+1463, Recursive Sequence,1.0,12559,"A numeric sequence is a series of numbers defined by a recursive formula as the one shown below: Write the recursive function f that computes the series define above. The second parameter,k, could be any integer value. Examples:","public  int f(int n, int k)
+{
+    if(n <= 1){
+        return 1;
+    }
+    else if(n == 2){
+        return 3;
+    }
+    else if(n > k){
+        return f(n-k, k) + f(n-1, k);
+    }
+    else{
+        return f(n-1, k) + f(n-2, k);
+    }
+}
+"
+1464, Create a binary tree,1.0,12559,"Complete the method makeTree() that will store in a String array the nodes representing the tree depicted in parenthesized notation below. (G (J - D) (B (X Y Z) -)) This routine uses the array-based representation of binary tree where a node is stored at position i and their children are stored at i * 2 + 1 for the left child and at i * 2 + 2 for their right child. If a position in the tree is unused, then the corresponding location has a null value. The root of the tree is stored at location 0. You must allocate the array of the size specified by the parameter (size) and store in the appropriate position the values ""G"", ""J"", ""D"", ""B"", ""X"", ""Y"", and ""Z"" and set all other locations to null. The routine should return the allocated tree (i.e., an array of strings). You can assume that size is large enough to allow storing the tree shown above. In the parenthesis notation a tree (A B C) means A is the root of the tree, B is the left child, and C is the right child. We normally use a hyphen - to designate a null child. Thus the tree (A B -) has a root A at the root, B as the left child (ie., i * 2 + 1) and a null value for the right child (i.e., i * 2 + 2).","public String[] makeTree(int size)
+{
+    // Create the tree for
+    // (G (J - D) (B (X Y Z) -))
+    String[] array = new String[size];
+    array[0] = ""G"";
+    array[1] = ""J"";
+    array[2] = ""B"";
+    array[4] = ""D"";
+    array[5] = ""X"";
+    array[11] = ""Y"";
+    array[12] = ""Z"";
+    return array;
+    
+        
+    
+}
+"
+1465, Count nodes with 2 children,1.0,12559,"Use the BinaryNode<E> class shown below to answer this problem. Define a recursive method countNodes() that counts all the nodes in the tree that contains exactly 2 children. The method should return the number of nodes in the tree with 2 children. As example, consider that root points to the tree shown below, the countNodes(root) returns 2. ","public int countNodes(BinaryNode<String> root)
+{
+    if(root == null){
+        return 0;
+    }
+    int count = 0;
+    if(root.getLeft() != null && root.getRight() != null){
+        count = 1;
+    }
+    return count + countNodes(root.getLeft()) + countNodes(root.getRight());
+   
+}
+"
+1466, Complete level-order traversal,1.0,12559,"Complete the method levelOrder(BinaryNode&lt;String&gt; tree) to traverse the tree stored in tree in level order. The algorithm is as follows: The method, when visiting a node, should build a string with the node visited in level order. At the end the method should return that string. Remember to put spaces between nodes in the result string. But don't worry about having too many spaces, they will be ignored in the testing as long as there is at least one space between nodes. You can use the BinaryNode<String> class and there is a Queue<E> class defined that you can instantiate and use to store the BinaryNode<String> objects as you visit them. As example, the tree (C (F H D) E) when built and passed to levelOrder(tree) should produce ""C F E H D"".","public String levelOrder(BinaryNode<String> root)
+{
+    String result = """";
+    if (root != null) {
+        // create queue and enqueue the root
+        Queue<BinaryNode<String>> queue = new Queue<>();
+        queue.enqueue(root);
+        while (!queue.isEmpty()) {
+            // dequeue node
+            BinaryNode<String> node = queue.dequeue();
+            // visit the node
+            String data = node.getValue();
+            result += data + "" "";
+
+            // enqueue left and right if they exist
+            if(node.getLeft() != null){
+                queue.enqueue(node.getLeft());
+            }
+            if(node.getRight() != null){
+                queue.enqueue(node.getRight());
+            }
+        }
+    }
+    return result;
+    
+}
+"
