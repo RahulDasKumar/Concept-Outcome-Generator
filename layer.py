@@ -18,6 +18,7 @@ MATCH (n:Learning_Concept) WHERE n.name CONTAINS $learning_concept MATCH (n)-[r:
 def get_concept(entity: str) -> str:
     try:
         data = graph.query(description_query, params={"learning_concept": entity})
+        print(data)
         return data
     except IndexError:
         return "No information was found"

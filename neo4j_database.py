@@ -21,3 +21,9 @@ graph = Neo4jGraph(
 
 print(graph.schema)
 
+validation_query = """
+MATCH (lc:Learning_Concept)
+RETURN lc.name AS Learning_Concept
+"""
+existing_concepts = graph.query(validation_query)
+print(existing_concepts)
